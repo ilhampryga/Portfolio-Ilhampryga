@@ -1,0 +1,710 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio personal Software Developer dengan fokus pada Web Development, IoT, dan Automation." />
+  <meta name="keywords" content="portfolio, software developer, quality assurance, iot, automation" />
+  <meta name="author" content="Ilham Prayoga" />
+
+  <title>Ilham Prayoga | Portfolio</title>
+
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="cursor-glow" aria-hidden="true"></div>
+
+  <header class="site-header" id="siteHeader">
+    <nav class="navbar container" aria-label="Navigasi utama">
+      <a href="#home" class="brand" aria-label="Kembali ke beranda">
+        <span class="brand-mark">
+          <img src="assets/img/profile.png" alt="Foto profil Ilham Prayoga" loading="lazy" />
+        </span>
+        <span class="brand-text">Ilham Prayoga</span>
+      </a>
+
+      <div class="nav-actions">
+        <div class="nav-menu" id="navMenu">
+          <a href="#about" data-i18n="nav.about">Tentang</a>
+          <a href="#tech-stack" data-i18n="nav.techstack">Tech Stack</a>
+          <a href="#certifications" data-i18n="nav.certifications">Sertifikasi</a>
+          <a href="#projects" data-i18n="nav.projects">Project</a>
+          <a href="#contact" data-i18n="nav.contact">Kontak</a>
+        </div>
+
+        <button class="lang-toggle" id="langToggle" type="button" aria-label="Ganti bahasa">
+          <img class="lang-icon-id" src="https://flagcdn.com/w40/id.png" alt="" width="20" height="14" />
+          <img class="lang-icon-en" src="https://flagcdn.com/w40/gb.png" alt="" width="20" height="14" style="display: none;" />
+          <span class="lang-text">ID</span>
+        </button>
+
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Aktifkan dark mode" aria-pressed="false">
+          <span class="theme-icon theme-icon-sun" aria-hidden="true"></span>
+          <span class="theme-icon theme-icon-moon" aria-hidden="true"></span>
+        </button>
+
+        <button class="nav-toggle" id="navToggle" aria-label="Buka menu navigasi" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero section" id="home">
+      <div class="hero-grid container">
+        <div class="hero-content reveal">
+          <p class="eyebrow" data-i18n="hero.eyebrow">Software Developer, Quality Assurance, IoT Automation</p>
+          <h1
+            class="hero-title split-parent"
+            data-split-text
+            data-split-delay="34"
+            data-split-duration="700"
+            data-split-threshold="0.1"
+            data-split-root-margin="-100px"
+            data-i18n="hero.title"
+            data-i18n-html="true"
+          >Membangun solusi digital yang <span class="gradient-text">simple, interaktif, dan fungsional.</span></h1>
+          <p class="hero-description" data-i18n="hero.description" data-i18n-html="true">
+            Halo, saya <strong>Ilham Prayoga</strong>. Saya tertarik pada pengembangan website,
+            sistem berbasis IoT, dan automasi proses menggunakan teknologi modern.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary magnetic" data-i18n="hero.cta_projects">Lihat Project</a>
+            <a href="assets/files/CV_Ilham_Prayoga.pdf" class="btn btn-secondary magnetic" download data-i18n="hero.cta_cv">Download CV</a>
+          </div>
+
+          <div class="hero-stats" aria-label="Kesiapan kerja dan fokus">
+            <span class="hero-ready-text" data-i18n="hero.ready">Open to Work</span>
+            <span
+              class="text-rotate hero-rotating-text"
+              data-rotating-text
+              data-texts='["Software Development", "IoT Systems", "Quality Assurance"]'
+              data-rotation-interval="3200"
+              data-stagger-duration="38"
+              data-stagger-from="random"
+              data-split-by="characters"
+            >Web Development</span>
+          </div>
+        </div>
+
+          <div class="hero-visual reveal delay-1" aria-hidden="true">
+          <div class="profile-card tilt-card">
+            <div class="profile-top">
+              <div class="profile-top-copy">
+                <h2>Ilham Prayoga</h2>
+                <p>Software Developer</p>
+              </div>
+            </div>
+
+            <div class="code-preview">
+              <div class="code-line"><span>const</span> focus = "Testing & Development";</div>
+              <div class="code-line"><span>const</span> stack = ["QA", "IoT", "API"];</div>
+              <div class="code-line"><span>build</span>("Portfolio");</div>
+            </div>
+
+            <div class="mini-tags">
+              <span>JavaScript</span>
+              <span>Selenium</span>
+              <span>Internet of Things</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a href="#about" class="scroll-indicator" aria-label="Scroll ke bagian tentang">
+        <span></span>
+      </a>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container two-column">
+        <div class="section-heading reveal">
+          <p class="eyebrow" data-i18n="about.eyebrow">Tentang Saya</p>
+          <div
+            class="profile-card-wrapper about-profile-card"
+            data-profile-card
+            style="--inner-gradient: linear-gradient(145deg, rgba(96, 73, 110, 0.45) 0%, rgba(113, 196, 255, 0.26) 100%); --behind-glow-color: rgba(125, 190, 255, 0.45);"
+          >
+            <div class="profile-card-shell">
+              <section class="profile-card-reactbits" aria-label="Profil Ilham Prayoga">
+                <div class="profile-card-pattern" aria-hidden="true"></div>
+                <div class="profile-card-shine" aria-hidden="true"></div>
+                <div class="profile-card-glare" aria-hidden="true"></div>
+
+                <div class="profile-details">
+                  <h3>Ilham Prayoga</h3>
+                  <p>Software Developer</p>
+                </div>
+
+                <img class="profile-avatar-main" src="assets/img/profile.png" alt="Foto profil Ilham Prayoga" loading="lazy" />
+
+                <div class="profile-user-info">
+                  <div class="profile-user-details">
+                    <img class="profile-mini-avatar" src="assets/img/profile.png" alt="" loading="lazy" />
+                    <div class="profile-user-text">
+                      <div class="profile-handle">@ilhamprygap</div>
+                      <div class="profile-status">Available</div>
+                    </div>
+                  </div>
+                  <a class="profile-contact-btn" href="#contact" aria-label="Hubungi Ilham Prayoga">Contact</a>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-text reveal delay-1">
+          <p data-i18n="about.p1">
+            Saya adalah mahasiswa Teknik Informatika yang memiliki ketertarikan pada
+            pengembangan aplikasi web, sistem IoT, integrasi API, dan automasi workflow.
+            Saya senang membangun project yang tidak hanya terlihat menarik, tetapi juga
+            memiliki fungsi nyata untuk membantu aktivitas pengguna.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section tech-stack-section" id="tech-stack">
+      <div class="container">
+        <div class="section-heading centered reveal">
+          <p class="eyebrow">Tech Stack</p>
+          <h2
+            class="text-type tech-stack-title"
+            data-text-type
+            data-text='["Software Development", "Quality Assurance", "IoT Automation"]'
+            data-typing-speed="75"
+            data-deleting-speed="34"
+            data-pause-duration="1500"
+            data-initial-delay="220"
+            data-start-on-visible="true"
+            data-cursor-character="|"
+          ><span class="text-type__content">Tech Stack</span><span class="text-type__cursor" aria-hidden="true">|</span></h2>
+        </div>
+
+        <div class="logo-loop-panel reveal delay-1">
+          <div
+            class="logoloop logoloop--horizontal logoloop--fade logoloop--scale-hover tech-logoloop"
+            data-logo-loop
+            data-speed="62"
+            data-direction="left"
+            data-logo-height="44"
+            data-gap="26"
+            data-hover-speed="0"
+            role="region"
+            aria-label="Bahasa pemrograman dan framework"
+          >
+            <div class="logoloop__track">
+              <ul class="logoloop__list" role="list">
+                <li class="logoloop__item" role="listitem"><span class="logoloop__node stack-card"><i class="devicon-html5-plain colored"></i><span>HTML</span></span></li>
+                <li class="logoloop__item" role="listitem"><span class="logoloop__node stack-card"><i class="devicon-css3-plain colored"></i><span>CSS</span></span></li>
+                <li class="logoloop__item" role="listitem"><span class="logoloop__node stack-card"><i class="devicon-php-plain colored"></i><span>PHP</span></span></li>
+                <li class="logoloop__item" role="listitem"><span class="logoloop__node stack-card"><i class="devicon-javascript-plain colored"></i><span>JavaScript</span></span></li>
+                <li class="logoloop__item" role="listitem"><span class="logoloop__node stack-card"><i class="devicon-python-plain colored"></i><span>Python</span></span></li>
+                <li class="logoloop__item" role="listitem"><span class="logoloop__node stack-card"><i class="devicon-mysql-plain colored"></i><span>MySQL</span></span></li>
+                <li class="logoloop__item" role="listitem"><span class="logoloop__node stack-card"><i class="devicon-firebase-plain colored"></i><span>Firebase</span></span></li>
+                <li class="logoloop__item" role="listitem"><span class="logoloop__node stack-card"><i class="devicon-bootstrap-plain colored"></i><span>Bootstrap</span></span></li>
+                <li class="logoloop__item" role="listitem"><span class="logoloop__node stack-card"><span class="devicon-laravel-plain colored"></span><span>Laravel</span></span></li>
+                <li class="logoloop__item" role="listitem"><span class="logoloop__node stack-card"><i class="devicon-tailwindcss-plain colored"></i><span>Tailwind CSS</span></span></li>
+                <li class="logoloop__item" role="listitem"><span class="logoloop__node stack-card"><i class="devicon-flutter-plain colored"></i><span>Flutter</span></span></li>
+                <li class="logoloop__item" role="listitem"><span class="logoloop__node stack-card"><i class="devicon-dart-plain colored"></i><span>Dart</span></span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div
+            class="logoloop logoloop--horizontal logoloop--fade logoloop--scale-hover tech-logoloop"
+            data-logo-loop
+            data-speed="56"
+            data-direction="right"
+            data-logo-height="44"
+            data-gap="26"
+            data-hover-speed="0"
+            role="region"
+            aria-label="Tools dan teknologi pendukung"
+          >
+            <div class="logoloop__track">
+              <ul class="logoloop__list" role="list">
+                <li class="logoloop__item" role="listitem"><span class="logoloop__node stack-card"><i class="devicon-git-plain colored"></i><span>Git</span></span></li>
+                <li class="logoloop__item" role="listitem"><span class="logoloop__node stack-card"><i class="devicon-github-plain colored"></i><span>GitHub</span></span></li>
+                <li class="logoloop__item" role="listitem"><span class="logoloop__node stack-card"><i class="devicon-docker-plain colored"></i><span>Docker</span></span></li>
+                <li class="logoloop__item" role="listitem"><span class="logoloop__node stack-card"><span class="stack-fallback">IoT</span><span>IoT</span></span></li>
+                <li class="logoloop__item" role="listitem"><span class="logoloop__node stack-card"><i class="devicon-selenium-plain colored"></i><span>Selenium</span></span></li>
+                <li class="logoloop__item" role="listitem"><span class="logoloop__node stack-card"><i class="devicon-cypressio-plain"></i><span>Cypress</span></span></li>
+                <li class="logoloop__item" role="listitem"><span class="logoloop__node stack-card"><i class="devicon-postman-plain colored"></i><span>Postman</span></span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section certifications-section" id="certifications">
+      <div class="container">
+        <div class="section-heading centered reveal">
+          <p class="eyebrow" data-i18n="certifications.eyebrow">Pelatihan &amp; Sertifikasi</p>
+          <h2
+            class="blur-text"
+            data-blur-text
+            data-animate-by="words"
+            data-direction="top"
+            data-delay="180"
+            data-step-duration="720"
+            data-threshold="0.1"
+            data-root-margin="0px"
+            data-i18n="certifications.heading"
+          >Daftar Sertifikasi</h2>
+        </div>
+
+        <div class="certificate-filter reveal" role="group" aria-label="Filter pelatihan dan sertifikasi">
+          <button class="certificate-filter-btn active" type="button" data-certificate-filter="all" data-i18n="certifications.filter_all">Semua</button>
+          <button class="certificate-filter-btn" type="button" data-certificate-filter="data">Data Analytics</button>
+          <button class="certificate-filter-btn" type="button" data-certificate-filter="database">Database</button>
+          <button class="certificate-filter-btn" type="button" data-certificate-filter="training" data-i18n="certifications.filter_training">Pelatihan</button>
+        </div>
+
+        <div class="certificates-grid featured-mode" id="certificatesGrid">
+          <article class="certificate-card spotlight-card reveal" data-certificate-category="data">
+            <div class="certificate-image">
+              <img src="assets/img/damc.png" alt="Placeholder gambar sertifikat Data Analytics" loading="lazy" />
+            </div>
+            <div class="certificate-body">
+              <div class="certificate-content">
+                <p class="certificate-type">Data Analyst</p>
+                <h3>Intro to Data Analytics</h3>
+              </div>
+              <div class="certificate-footer">
+                <img class="certificate-institution-logo" src="assets/img/revou.jpeg" alt="" loading="lazy" />
+                <small>Sumber: RevoU • 2026</small>
+              </div>
+            </div>
+          </article>
+
+          <article class="certificate-card spotlight-card reveal delay-1" data-certificate-category="database" data-certificate-featured="primary">
+            <div class="certificate-image">
+              <img src="assets/img/databases.png" alt="Placeholder gambar sertifikat Software Quality Assurance" loading="lazy" />
+            </div>
+            <div class="certificate-body">
+              <div class="certificate-content">
+                <p class="certificate-type">Databases</p>
+                <h3>Information Technology Specialist in Databases</h3>
+              </div>
+              <div class="certificate-footer">
+                <img class="certificate-institution-logo" src="assets/img/certiport.png" alt="" loading="lazy" />
+                <small>Sumber: Certiport • 2025</small>
+              </div>
+            </div>
+          </article>
+
+          <article class="certificate-card spotlight-card reveal delay-2" data-certificate-category="training" data-certificate-featured="tertiary">
+            <div class="certificate-image">
+              <img src="assets/img/data_science.png" alt="Placeholder gambar sertifikat pelatihan profesional" loading="lazy" />
+            </div>
+            <div class="certificate-body">
+              <div class="certificate-content">
+                <p class="certificate-type">Data Science</p>
+                <h3>Associate Data Scientist + Python - Nasional</h3>
+              </div>
+              <div class="certificate-footer">
+                <img class="certificate-institution-logo" src="assets/img/digitalent.png" alt="" loading="lazy" />
+                <small>Sumber: Digitalent KOMDIGI • 2026</small>
+              </div>
+            </div>
+          </article>
+
+          <article class="certificate-card spotlight-card reveal delay-3" data-certificate-category="training">
+            <div class="certificate-image">
+              <img src="assets/img/msib.png" alt="Placeholder gambar sertifikat pelatihan profesional" loading="lazy" />
+            </div>
+            <div class="certificate-body">
+              <div class="certificate-content">
+                <p class="certificate-type">Kampus Merdeka</p>
+                <h3>Studi Independen Bersertifikat Angkatan 7</h3>
+              </div>
+              <div class="certificate-footer">
+                <img class="certificate-institution-logo" src="assets/img/mbkm.jpeg" alt="" loading="lazy" />
+                <small>Sumber: Kampus Merdeka • 2024</small>
+              </div>
+            </div>
+          </article>
+
+          <article class="certificate-card spotlight-card reveal delay-4" data-certificate-category="training">
+            <div class="certificate-image">
+              <img src="assets/img/indobot.png" alt="Placeholder gambar sertifikat pelatihan profesional" loading="lazy" />
+            </div>
+            <div class="certificate-body">
+              <div class="certificate-content">
+                <p class="certificate-type">Internet of Things</p>
+                <h3>IoT Engineer Camp Real Project</h3>
+              </div>
+              <div class="certificate-footer">
+                <img class="certificate-institution-logo" src="assets/img/indobot.jpeg" alt="" loading="lazy" />
+                <small>Sumber: Indobot Academy • 2024</small>
+              </div>
+            </div>
+          </article>
+
+          <article class="certificate-card spotlight-card reveal delay-5" data-certificate-category="training">
+            <div class="certificate-image">
+              <img src="assets/img/jna_vsga.png" alt="Placeholder gambar sertifikat pelatihan profesional" loading="lazy" />
+            </div>
+            <div class="certificate-body">
+              <div class="certificate-content">
+                <p class="certificate-type">Jaringan</p>
+                <h3>Junior Network Administrator</h3>
+              </div>
+              <div class="certificate-footer">
+                <img class="certificate-institution-logo" src="assets/img/digitalent.png" alt="" loading="lazy" />
+                <small>Sumber: Digitalent KOMDIGI • 2024</small>
+              </div>
+            </div>
+          </article>
+
+          <article class="certificate-card spotlight-card reveal delay-5" data-certificate-category="training">
+            <div class="certificate-image">
+              <img src="assets/img/jwd_vsga.png" alt="Placeholder gambar sertifikat pelatihan profesional" loading="lazy" />
+            </div>
+            <div class="certificate-body">
+              <div class="certificate-content">
+                <p class="certificate-type">Pengembangan Web</p>
+                <h3>Junior Web Developer</h3>
+              </div>
+              <div class="certificate-footer">
+                <img class="certificate-institution-logo" src="assets/img/digitalent.png" alt="" loading="lazy" />
+                <small>Sumber: Digitalent KOMDIGI • 2024</small>
+              </div>
+            </div>
+          </article>
+
+          <article class="certificate-card spotlight-card reveal delay-6" data-certificate-category="training">
+            <div class="certificate-image">
+              <img src="assets/img/jna_bnsp.png" alt="Placeholder gambar sertifikat pelatihan profesional" loading="lazy" />
+            </div>
+            <div class="certificate-body">
+              <div class="certificate-content">
+                <p class="certificate-type">Jaringan</p>
+                <h3>Junior Network Administrator</h3>
+              </div>
+              <div class="certificate-footer">
+                <img class="certificate-institution-logo" src="assets/img/lsp.png" alt="" loading="lazy" />
+                <small>Sumber: LSP Informatika BNSP • 2024</small>
+              </div>
+            </div>
+          </article>
+
+          <article class="certificate-card spotlight-card reveal delay-7" data-certificate-category="data" data-certificate-featured="secondary">
+            <div class="certificate-image">
+              <img src="assets/img/certificate-placeholder.svg" alt="Placeholder gambar sertifikat pelatihan profesional" loading="lazy" />
+            </div>
+            <div class="certificate-body">
+              <div class="certificate-content">
+                <p class="certificate-type">Data Science</p>
+                <h3>AI for Data Processing</h3>
+              </div>
+              <div class="certificate-footer">
+                <img class="certificate-institution-logo" src="assets/img/ukara.png" alt="" loading="lazy" />
+                <small>Sumber: UKARA • 2026</small>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="certificate-gallery-actions reveal">
+          <button
+            class="certificate-gallery-toggle"
+            id="certificateGalleryToggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="certificatesGrid"
+            data-label-id="Lihat Semua Sertifikat"
+            data-label-en="View All Certificates"
+            data-collapse-id="Tampilkan Lebih Sedikit"
+            data-collapse-en="Show Less"
+          >
+            <span class="certificate-gallery-toggle-label">Lihat Semua Sertifikat</span>
+            <span class="certificate-gallery-count">9</span>
+            <span class="certificate-gallery-toggle-icon" aria-hidden="true">↓</span>
+          </button>
+          <p class="certificate-swipe-hint" data-i18n="certifications.swipe_hint">Geser untuk melihat sertifikat unggulan lainnya →</p>
+        </div>
+      </div>
+
+    </section>
+
+    <div class="certificate-modal" id="certificateModal" aria-hidden="true">
+      <button class="certificate-modal-backdrop" type="button" data-certificate-modal-close tabindex="-1" aria-label="Tutup pratinjau sertifikat"></button>
+      <div class="certificate-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="certificateModalTitle">
+        <button class="certificate-modal-close" type="button" data-certificate-modal-close aria-label="Tutup pratinjau sertifikat">
+          <span aria-hidden="true">×</span>
+        </button>
+        <div class="certificate-modal-image-wrap">
+          <img id="certificateModalImage" src="assets/img/certificate-placeholder.svg" alt="" />
+        </div>
+        <div class="certificate-modal-caption">
+          <h3 id="certificateModalTitle">Pratinjau Sertifikat</h3>
+          <p id="certificateModalSource"></p>
+        </div>
+      </div>
+    </div>
+
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-heading centered reveal">
+          <p class="eyebrow" data-i18n="projects.eyebrow">Project</p>
+          <h2
+            class="blur-text"
+            data-blur-text
+            data-animate-by="words"
+            data-direction="top"
+            data-delay="420"
+            data-step-duration="980"
+            data-threshold="0.1"
+            data-root-margin="0px"
+            data-i18n="projects.heading"
+          >Beberapa project yang relevan dengan fokus saya.</h2>
+        </div>
+
+        <div class="project-filter reveal">
+          <button class="filter-btn active" data-filter="all" data-i18n="projects.filter_all">Semua</button>
+          <button class="filter-btn" data-filter="web">Web</button>
+          <button class="filter-btn" data-filter="iot">IoT</button>
+          <button class="filter-btn" data-filter="automation">Automation</button>
+          <button class="filter-btn" data-filter="data">Data Analyst</button>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card spotlight-card reveal" data-category="iot">
+            <div class="project-image">
+              <img src="assets/img/project1.png" alt="Smart Drip Irrigation System" loading="lazy">
+            </div>
+            <div class="project-content">
+              <h3>Smart Drip Irrigation System</h3>
+              <p data-i18n="project1.desc">
+                Sistem irigasi tetes berbasis IoT untuk tanaman cabai menggunakan perhitungan
+                ETc Hargreaves-Samani dan Fuzzy Logic.
+              </p>
+              <div class="project-tags">
+                <span>ESP8266</span>
+                <span>Fuzzy Logic</span>
+                <span>ETc</span>
+              </div>
+              <div class="project-links">
+                <a href="#" target="_blank" aria-label="Lihat demo Smart Drip">Demo</a>
+                <a href="https://github.com/ilhampryga/SmartDrip-Page.git" target="_blank" aria-label="Lihat repository Smart Drip">GitHub</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card spotlight-card reveal delay-1" data-category="automation">
+            <div class="project-image">
+              <img src="assets/img/project2.png" alt="Telegram Finance Tracker" loading="lazy">
+            </div>
+            <div class="project-content">
+              <h3>Kuningan Trip</h3>
+              <p data-i18n="project2.desc">
+                Workflow otomatis untuk mencatat pemasukan dan pengeluaran melalui Telegram,
+                kemudian menyimpan data ke Google Sheets.
+              </p>
+              <div class="project-tags">
+                <span>React</span>
+                <span>JavaScript</span>
+                <span>API</span>
+              </div>
+              <div class="project-links">
+                <a href="#" target="_blank"">Demo</a>
+                <a href="#" target="_blank">GitHub</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card spotlight-card reveal delay-2" data-category="web">
+            <div class="project-image">
+              <img src="assets/img/project3.png" alt="Website Blog Informasi" loading="lazy">
+            </div>
+            <div class="project-content">
+              <h3>Vanillablue Photo Studio</h3>
+              <p data-i18n="project3.desc">
+                Website blog ringan dan responsif dengan struktur konten rapi, SEO-friendly,
+                serta sistem komentar yang mudah dikelola.
+              </p>
+              <div class="project-tags">
+                <span>Laravel</span>
+                <span>CSS</span>
+                <span>MySQL</span>
+              </div>
+              <div class="project-links">
+                <a href="#" target="_blank">Demo</a>
+                <a href="#" target="_blank">GitHub</a>
+              </div>
+            </div>
+          </article>
+
+          <div class="projects-bottom-row">
+            <article class="project-card spotlight-card reveal" data-category="web">
+              <div class="project-image">
+                <img src="assets/img/project4.png" alt="Landing Page UMKM" loading="lazy">
+              </div>
+              <div class="project-content">
+                <h3>Waste 2 Gold: SIMBARA</h3>
+                <p data-i18n="project4.desc">
+                  Halaman promosi responsif untuk bisnis lokal dengan tampilan modern,
+                  CTA yang jelas, dan struktur informasi yang mudah dipindai.
+                </p>
+                <div class="project-tags">
+                  <span>RFID</span>
+                  <span>SIM800L</span>
+                  <span>Mobile</span>
+                </div>
+                <div class="project-links">
+                  <a href="#" target="_blank">Demo</a>
+                  <a href="#" target="_blank">GitHub</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card spotlight-card reveal delay-1" data-category="automation">
+              <div class="project-image">
+                <img src="assets/img/project5.png" alt="Workflow Notifikasi Otomatis" loading="lazy">
+              </div>
+              <div class="project-content">
+                <h3 data-i18n="project5.title">Workflow Notifikasi Otomatis</h3>
+                <p data-i18n="project5.desc">
+                  Automasi pengiriman notifikasi dari data formulir dan API eksternal
+                  untuk mempercepat proses follow-up dan pelaporan.
+                </p>
+                <div class="project-tags">
+                  <span>n8n</span>
+                  <span>API</span>
+                  <span>Webhook</span>
+                </div>
+                <div class="project-links">
+                  <a href="#" target="_blank">Demo</a>
+                  <a href="#" target="_blank">GitHub</a>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="project-card project-card--data spotlight-card reveal delay-2"
+              data-category="data"
+              data-data-project
+              data-dashboard-url=""
+              data-notebook-url=""
+            >
+              <div class="project-image">
+                <img src="assets/img/data-analytics-project-placeholder.svg" alt="Preview Data Analytics Dashboard" loading="lazy">
+              </div>
+              <div class="project-content">
+                <h3 data-i18n="data_project.title">Data Analytics Dashboard</h3>
+                <p data-i18n="data_project.desc">
+                  Project analisis data end-to-end yang mengubah data mentah menjadi insight
+                  dan visualisasi interaktif melalui dashboard Tableau.
+                </p>
+                <div class="project-tags">
+                  <span>Tableau</span>
+                  <span>Python</span>
+                  <span>Google Colab</span>
+                </div>
+                <div class="project-links">
+                  <a class="data-dashboard-link" href="#" target="_blank" rel="noopener">Dashboard</a>
+                  <button class="project-link-button" type="button" data-case-study-open>Case Study</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card project-card--coming-soon border-glow-card reveal delay-2" data-category="soon">
+              <span class="edge-light" aria-hidden="true"></span>
+              <div class="border-glow-inner">
+                <p data-i18n="projects.coming_soon">Coming Soon Project...</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="case-study-modal" id="caseStudyModal" aria-hidden="true">
+      <button class="case-study-modal-backdrop" type="button" data-case-study-close tabindex="-1" aria-label="Tutup case study"></button>
+      <div class="case-study-dialog" role="dialog" aria-modal="true" aria-labelledby="caseStudyTitle">
+        <button class="case-study-close" type="button" data-case-study-close aria-label="Tutup case study">
+          <span aria-hidden="true">×</span>
+        </button>
+
+        <div class="case-study-media">
+          <img src="assets/img/data-analytics-project-placeholder.svg" alt="Preview Data Analytics Dashboard" />
+        </div>
+
+        <div class="case-study-content">
+          <p class="case-study-eyebrow" data-i18n="case_study.eyebrow">Data Analyst Project</p>
+          <h3 id="caseStudyTitle" data-i18n="data_project.title">Data Analytics Dashboard</h3>
+          <div class="case-study-description">
+            <p data-i18n="case_study.description">
+              Studi kasus ini mendokumentasikan proses analisis mulai dari memahami kebutuhan,
+              membersihkan data, melakukan eksplorasi, hingga menyusun insight pada dashboard Tableau.
+            </p>
+            <p data-i18n="case_study.details">
+              Notebook digunakan untuk proses data preparation dan exploratory data analysis,
+              sedangkan dashboard menyajikan hasil akhir agar mudah dipahami dan digunakan dalam pengambilan keputusan.
+            </p>
+          </div>
+
+          <div class="case-study-actions">
+            <a class="btn btn-primary case-study-dashboard-link" href="#" target="_blank" rel="noopener">Dashboard</a>
+            <a class="btn btn-secondary case-study-notebook-link" href="#" target="_blank" rel="noopener">Notebook</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="section contact-section" id="contact">
+      <div class="container contact-grid">
+        <div class="section-heading reveal">
+          <p class="eyebrow" data-i18n="contact.eyebrow">Kontak</p>
+          <h2 data-i18n="contact.heading" data-i18n-html="true">Mari terhubung untuk <span class="contact-highlight contact-highlight--first">project, kolaborasi,</span> <span class="contact-highlight contact-highlight--second">atau peluang kerja.</span></h2>
+          <p data-i18n="contact.description">
+            Silakan hubungi saya melalui email, WhatsApp, LinkedIn, atau GitHub.
+            Saya terbuka untuk diskusi project web, IoT, maupun automasi.
+          </p>
+        </div>
+
+        <div class="contact-card reveal delay-1">
+          <a href="mailto:ilhamadi460@gmail.com" target="_blank" class="contact-link">
+            <span>Email</span>
+            <strong>ilhamadi460@gmail.com</strong>
+          </a>
+          <a href="https://wa.me/6285797208591" target="_blank" rel="noopener" class="contact-link">
+            <span>WhatsApp</span>
+            <strong>+62 857-9720-8591</strong>
+          </a>
+          <a href="https://github.com/ilhampryga" target="_blank" rel="noopener" class="contact-link">
+            <span>GitHub</span>
+            <strong>github.com/ilhampryga</strong>
+          </a>
+          <a href="https://www.linkedin.com/in/ilhamprygap" target="_blank" rel="noopener" class="contact-link">
+            <span>LinkedIn</span>
+            <strong>linkedin.com/in/ilhamprygap</strong>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year"></span> Ilham Prayoga</p>
+      <a href="#home" data-i18n="footer.back_to_top">Kembali ke atas</a>
+    </div>
+  </footer>
+
+  <script src="assets/js/script.js"></script>
+</body>
+</html>

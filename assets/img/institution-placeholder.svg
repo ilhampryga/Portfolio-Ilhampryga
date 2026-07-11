@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title description">
+  <title id="title">Institution logo placeholder</title>
+  <desc id="description">Placeholder yang dapat diganti dengan logo institusi penerbit sertifikat.</desc>
+  <defs>
+    <linearGradient id="background" x1="16" y1="12" x2="112" y2="116" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0f766e" />
+      <stop offset="1" stop-color="#2563eb" />
+    </linearGradient>
+  </defs>
+  <circle cx="64" cy="64" r="58" fill="url(#background)" />
+  <path d="m24 50 40-22 40 22-40 22-40-22Z" fill="#fff" />
+  <path d="M39 62v23c13 10 37 10 50 0V62L64 76 39 62Z" fill="#fff" opacity="0.9" />
+  <path d="M104 50v31" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" />
+  <circle cx="104" cy="88" r="6" fill="#fff" />
+</svg>
