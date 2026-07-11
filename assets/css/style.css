@@ -1681,9 +1681,15 @@ html[data-theme="dark"] .hero-rotating-text {
 }
 
 .featured-mode .certificate-card[data-certificate-featured="primary"] .certificate-image {
-  min-height: 0;
+  height: auto;
   flex: 1 1 auto;
-  aspect-ratio: auto;
+  aspect-ratio: 16 / 9;
+  border-right: 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.featured-mode .certificate-card[data-certificate-featured="primary"] .certificate-image img {
+  object-fit: contain;
 }
 
 .featured-mode .certificate-card[data-certificate-featured="primary"] .certificate-body {

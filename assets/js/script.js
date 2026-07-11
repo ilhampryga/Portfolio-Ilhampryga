@@ -3,11 +3,7 @@ const navToggle = document.getElementById("navToggle");
 const navMenu = document.getElementById("navMenu");
 const themeToggle = document.getElementById("themeToggle");
 const navLinks = [...document.querySelectorAll(".nav-menu a")];
-const revealElements = document.querySelectorAll(".reveal");
 const filterButtons = document.querySelectorAll(".filter-btn");
-const projectCards = document.querySelectorAll(".project-card");
-const spotlightCards = document.querySelectorAll(".spotlight-card");
-const borderGlowCards = document.querySelectorAll(".border-glow-card");
 const tiltCards = document.querySelectorAll(".tilt-card");
 const profileCards = document.querySelectorAll("[data-profile-card]");
 const magneticButtons = document.querySelectorAll(".magnetic");
@@ -18,7 +14,6 @@ const blurTextElements = document.querySelectorAll("[data-blur-text]");
 const rotatingTextElements = document.querySelectorAll("[data-rotating-text]");
 const contactHighlights = document.querySelectorAll(".contact-highlight");
 const certificateFilterButtons = document.querySelectorAll("[data-certificate-filter]");
-const certificateCards = document.querySelectorAll("[data-certificate-category]");
 const certificationsSection = document.getElementById("certifications");
 const certificatesGrid = document.getElementById("certificatesGrid");
 const certificateGalleryToggle = document.getElementById("certificateGalleryToggle");
@@ -29,17 +24,20 @@ const certificateModalImage = document.getElementById("certificateModalImage");
 const certificateModalTitle = document.getElementById("certificateModalTitle");
 const certificateModalSource = document.getElementById("certificateModalSource");
 const certificateModalCloseButtons = document.querySelectorAll("[data-certificate-modal-close]");
-const dataProjectCard = document.querySelector("[data-data-project]");
+const projectsGrid = document.getElementById("projectsGrid");
 const caseStudyModal = document.getElementById("caseStudyModal");
-const caseStudyOpenButton = document.querySelector("[data-case-study-open]");
 const caseStudyCloseButtons = document.querySelectorAll("[data-case-study-close]");
-const dataDashboardLinks = document.querySelectorAll(".data-dashboard-link, .case-study-dashboard-link");
-const caseStudyNotebookLink = document.querySelector(".case-study-notebook-link");
 const cursorGlow = document.querySelector(".cursor-glow");
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const LOGO_LOOP_CONFIG = { SMOOTH_TAU: 0.25, MIN_COPIES: 2, COPY_HEADROOM: 2 };
+const certificateData = Array.isArray(window.PORTFOLIO_CERTIFICATES) ? window.PORTFOLIO_CERTIFICATES : [];
+const projectData = Array.isArray(window.PORTFOLIO_PROJECTS) ? window.PORTFOLIO_PROJECTS : [];
+const getProjectCards = () => [...document.querySelectorAll(".project-card")];
+const getSpotlightCards = () => [...document.querySelectorAll(".spotlight-card")];
+const getBorderGlowCards = () => [...document.querySelectorAll(".border-glow-card")];
+const getCertificateCards = () => [...document.querySelectorAll("[data-certificate-category]")];
 
-document.getElementById("year").textContent = "2025";
+document.getElementById("year").textContent = String(new Date().getFullYear());
 
 const getStoredTheme = () => {
   try {
@@ -196,11 +194,139 @@ const storeLang = (lang) => {
   }
 };
 
+const getCurrentLang = () => (document.documentElement.lang === "en" ? "en" : "id");
+const getLocalizedValue = (value, lang = getCurrentLang()) => {
+  if (value && typeof value === "object") {
+    return value[lang] ?? value.id ?? value.en ?? "";
+  }
+
+  return value ?? "";
+};
+
+const escapeHtml = (value) => String(value ?? "")
+  .replace(/&/g, "&amp;")
+  .replace(/</g, "&lt;")
+  .replace(/>/g, "&gt;")
+  .replace(/"/g, "&quot;")
+  .replace(/'/g, "&#39;");
+
+const renderCertificateCard = (item, index, lang) => {
+  const featuredAttribute = item.featured ? ` data-certificate-featured="${escapeHtml(item.featured)}"` : "";
+  const delayClass = item.delayClass ? ` ${escapeHtml(item.delayClass)}` : "";
+  const imageAlt = getLocalizedValue(item.imageAlt, lang) || getLocalizedValue(item.title, lang);
+
+  return `
+    <article class="certificate-card spotlight-card reveal${delayClass}" data-certificate-category="${escapeHtml(item.category)}"${featuredAttribute}>
+      <div class="certificate-image">
+        <img src="${escapeHtml(item.image)}" alt="${escapeHtml(imageAlt)}" loading="lazy" />
+      </div>
+      <div class="certificate-body">
+        <div class="certificate-content">
+          <p class="certificate-type">${escapeHtml(getLocalizedValue(item.type, lang))}</p>
+          <h3 id="certificate-card-title-${index + 1}">${escapeHtml(getLocalizedValue(item.title, lang))}</h3>
+        </div>
+        <div class="certificate-footer">
+          <img class="certificate-institution-logo" src="${escapeHtml(item.logo)}" alt="" loading="lazy" />
+          <small>${lang === "en" ? "Source" : "Sumber"}: ${escapeHtml(getLocalizedValue(item.source, lang))} • ${escapeHtml(item.year)}</small>
+        </div>
+      </div>
+    </article>
+  `;
+};
+
+const renderProjectCard = (item, lang) => {
+  if (item.kind === "coming-soon") {
+    return `
+      <article class="project-card project-card--coming-soon border-glow-card reveal ${escapeHtml(item.delayClass || "")}" data-category="${escapeHtml(item.category || "soon")}">
+        <span class="edge-light" aria-hidden="true"></span>
+        <div class="border-glow-inner">
+          <p>${escapeHtml(getLocalizedValue(item.label, lang))}</p>
+        </div>
+      </article>
+    `;
+  }
+
+  const title = getLocalizedValue(item.title, lang);
+  const description = getLocalizedValue(item.description, lang);
+  const imageAlt = getLocalizedValue(item.imageAlt, lang) || title;
+  const tags = Array.isArray(item.tags) ? item.tags.map((tag) => `<span>${escapeHtml(tag)}</span>`).join("") : "";
+  const extraClasses = [
+    "project-card",
+    item.kind === "data-project" ? "project-card--data" : "",
+    "spotlight-card",
+    "reveal",
+    item.delayClass || ""
+  ].filter(Boolean).join(" ");
+  const dataProjectAttributes = item.kind === "data-project"
+    ? ` data-data-project data-dashboard-url="${escapeHtml(item.dashboardUrl || "")}" data-notebook-url="${escapeHtml(item.notebookUrl || "")}" data-case-study-image="${escapeHtml(item.caseStudyImage || item.image)}"`
+    : "";
+
+  let linksMarkup = "";
+
+  if (item.kind === "data-project") {
+    linksMarkup = `
+      <a class="data-dashboard-link" href="${escapeHtml(item.dashboardUrl || "#")}" target="_blank" rel="noopener">Dashboard</a>
+      <button class="project-link-button" type="button" data-case-study-open>Case Study</button>
+    `;
+  } else {
+    linksMarkup = `
+      <a href="${escapeHtml(item.demoUrl || "#")}" target="_blank" rel="noopener">${lang === "en" ? "Demo" : "Demo"}</a>
+      <a href="${escapeHtml(item.githubUrl || "#")}" target="_blank" rel="noopener">GitHub</a>
+    `;
+  }
+
+  return `
+    <article class="${extraClasses}" data-category="${escapeHtml(item.category)}"${dataProjectAttributes}>
+      <div class="project-image">
+        <img src="${escapeHtml(item.image)}" alt="${escapeHtml(imageAlt)}" loading="lazy">
+      </div>
+      <div class="project-content">
+        <h3>${escapeHtml(title)}</h3>
+        <p>${escapeHtml(description)}</p>
+        <div class="project-tags">
+          ${tags}
+        </div>
+        <div class="project-links">
+          ${linksMarkup}
+        </div>
+      </div>
+    </article>
+  `;
+};
+
+const getDataProject = () => projectData.find((item) => item.kind === "data-project") || null;
+
+const renderCertificates = (lang = getCurrentLang()) => {
+  if (!certificatesGrid) return;
+
+  certificatesGrid.innerHTML = certificateData.map((item, index) => renderCertificateCard(item, index, lang)).join("");
+};
+
+const renderProjects = (lang = getCurrentLang()) => {
+  if (!projectsGrid) return;
+
+  const topProjects = projectData.slice(0, 3);
+  const bottomProjects = projectData.slice(3);
+
+  projectsGrid.innerHTML = `
+    ${topProjects.map((item) => renderProjectCard(item, lang)).join("")}
+    <div class="projects-bottom-row">
+      ${bottomProjects.map((item) => renderProjectCard(item, lang)).join("")}
+    </div>
+  `;
+};
+
+const renderDynamicContent = (lang = getCurrentLang()) => {
+  renderCertificates(lang);
+  renderProjects(lang);
+};
+
 const applyLang = (lang) => {
   const dict = i18n[lang];
 
   if (!dict) return;
 
+  renderDynamicContent(lang);
   document.documentElement.setAttribute("lang", lang);
 
   document.querySelectorAll("[data-i18n]").forEach((element) => {
@@ -269,11 +395,15 @@ const applyLang = (lang) => {
 
     certificateGalleryToggleLabel.textContent = certificateGalleryToggle.getAttribute(labelAttribute) || "";
   }
+
+  initializeDynamicContent();
 };
 
 const setHeaderState = () => {
   header.classList.toggle("scrolled", window.scrollY > 20);
 };
+
+renderDynamicContent(getStoredLang() || "id");
 
 setHeaderState();
 window.addEventListener("scroll", setHeaderState, { passive: true });
@@ -329,7 +459,7 @@ const revealObserver = new IntersectionObserver(
   }
 );
 
-revealElements.forEach((element) => revealObserver.observe(element));
+document.querySelectorAll(".reveal").forEach((element) => revealObserver.observe(element));
 
 if (contactHighlights.length) {
   const contactHighlightObserver = new IntersectionObserver(
@@ -349,18 +479,34 @@ if (contactHighlights.length) {
   contactHighlightObserver.observe(contactHighlights[0].closest("#contact") || contactHighlights[0]);
 }
 
+const applyProjectFilter = (filter) => {
+  getProjectCards().forEach((card) => {
+    const category = card.dataset.category;
+    const shouldShow = filter === "all" || category === filter;
+    card.classList.toggle("hide", !shouldShow);
+  });
+};
+
+const applyCertificateFilter = (filter) => {
+  getCertificateCards().forEach((card) => {
+    const shouldShow = filter === "all" || card.dataset.certificateCategory === filter;
+    card.classList.toggle("hide", !shouldShow);
+
+    if (shouldShow) {
+      card.classList.remove("filter-enter");
+      requestAnimationFrame(() => {
+        card.classList.add("filter-enter");
+        card.addEventListener("animationend", () => card.classList.remove("filter-enter"), { once: true });
+      });
+    }
+  });
+};
+
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
     const filter = button.dataset.filter;
-
-    filterButtons.forEach((btn) => btn.classList.remove("active"));
-    button.classList.add("active");
-
-    projectCards.forEach((card) => {
-      const category = card.dataset.category;
-      const shouldShow = filter === "all" || category === filter;
-      card.classList.toggle("hide", !shouldShow);
-    });
+    filterButtons.forEach((btn) => btn.classList.toggle("active", btn === button));
+    applyProjectFilter(filter);
   });
 });
 
@@ -374,18 +520,7 @@ certificateFilterButtons.forEach((button) => {
       currentButton.setAttribute("aria-pressed", String(isActive));
     });
 
-    certificateCards.forEach((card) => {
-      const shouldShow = filter === "all" || card.dataset.certificateCategory === filter;
-      card.classList.toggle("hide", !shouldShow);
-
-      if (shouldShow) {
-        card.classList.remove("filter-enter");
-        requestAnimationFrame(() => {
-          card.classList.add("filter-enter");
-          card.addEventListener("animationend", () => card.classList.remove("filter-enter"), { once: true });
-        });
-      }
-    });
+    applyCertificateFilter(filter);
   });
 });
 
@@ -405,7 +540,7 @@ const updateCertificateGalleryToggle = (isExpanded) => {
   certificateGalleryToggleLabel.textContent = certificateGalleryToggle.getAttribute(labelAttribute) || "";
 
   if (certificateGalleryCount) {
-    certificateGalleryCount.textContent = String(certificateCards.length);
+    certificateGalleryCount.textContent = String(getCertificateCards().length);
   }
 };
 
@@ -416,7 +551,7 @@ const resetCertificateFilters = () => {
     button.setAttribute("aria-pressed", String(isActive));
   });
 
-  certificateCards.forEach((card) => card.classList.remove("hide"));
+  getCertificateCards().forEach((card) => card.classList.remove("hide"));
 };
 
 const setCertificateGalleryExpanded = (isExpanded) => {
@@ -427,7 +562,7 @@ const setCertificateGalleryExpanded = (isExpanded) => {
   certificatesGrid.classList.toggle("all-mode", isExpanded);
   resetCertificateFilters();
 
-  certificateCards.forEach((card, index) => {
+  getCertificateCards().forEach((card, index) => {
     const isFeatured = card.dataset.certificateFeatured !== undefined;
     card.classList.toggle("certificate-collapsed", !isExpanded && !isFeatured);
 
@@ -445,15 +580,6 @@ const setCertificateGalleryExpanded = (isExpanded) => {
     certificationsSection.scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth", block: "start" });
   }
 };
-
-certificateCards.forEach((card) => {
-  const isFeatured = card.dataset.certificateFeatured !== undefined;
-  card.classList.toggle("certificate-collapsed", !isFeatured);
-});
-
-if (certificateGalleryCount) {
-  certificateGalleryCount.textContent = String(certificateCards.length);
-}
 
 certificateGalleryToggle?.addEventListener("click", () => {
   const isExpanded = certificateGalleryToggle.getAttribute("aria-expanded") === "true";
@@ -497,28 +623,30 @@ const closeCertificateModal = () => {
   activeCertificateTrigger = null;
 };
 
-certificateCards.forEach((card, index) => {
-  const title = card.querySelector("h3");
+const initializeCertificateCards = () => {
+  const isExpanded = certificateGalleryToggle?.getAttribute("aria-expanded") === "true";
 
-  if (title && !title.id) {
-    title.id = `certificate-card-title-${index + 1}`;
-  }
+  getCertificateCards().forEach((card) => {
+    const title = card.querySelector("h3");
 
-  card.setAttribute("role", "button");
-  card.setAttribute("tabindex", "0");
-  card.setAttribute("aria-haspopup", "dialog");
+    card.setAttribute("role", "button");
+    card.setAttribute("tabindex", "0");
+    card.setAttribute("aria-haspopup", "dialog");
 
-  if (title?.id) {
-    card.setAttribute("aria-labelledby", title.id);
-  }
+    if (title?.id) {
+      card.setAttribute("aria-labelledby", title.id);
+    }
 
-  card.addEventListener("click", () => openCertificateModal(card));
-  card.addEventListener("keydown", (event) => {
-    if (event.key !== "Enter" && event.key !== " ") return;
-    event.preventDefault();
-    openCertificateModal(card);
+    card.addEventListener("click", () => openCertificateModal(card));
+    card.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter" && event.key !== " ") return;
+      event.preventDefault();
+      openCertificateModal(card);
+    });
   });
-});
+
+  setCertificateGalleryExpanded(isExpanded);
+};
 
 certificateModalCloseButtons.forEach((button) => {
   button.addEventListener("click", closeCertificateModal);
@@ -529,20 +657,50 @@ const configureProjectLink = (link, url) => {
 
   const hasUrl = /^https?:\/\//i.test(url);
   link.href = hasUrl ? url : "#";
+  link.toggleAttribute("aria-disabled", !hasUrl);
 };
-
-const dashboardUrl = dataProjectCard?.dataset.dashboardUrl?.trim() || "";
-const notebookUrl = dataProjectCard?.dataset.notebookUrl?.trim() || "";
-
-dataDashboardLinks.forEach((link) => configureProjectLink(link, dashboardUrl));
-configureProjectLink(caseStudyNotebookLink, notebookUrl);
 
 let activeCaseStudyTrigger = null;
 
 const openCaseStudyModal = () => {
+  const caseStudyOpenButton = document.querySelector("[data-case-study-open]");
+  const dataProjectCard = document.querySelector("[data-data-project]");
+  const caseStudyImage = caseStudyModal?.querySelector(".case-study-media img");
+  const caseStudyTitle = caseStudyModal?.querySelector("#caseStudyTitle");
+  const caseStudyEyebrow = caseStudyModal?.querySelector(".case-study-eyebrow");
+  const caseStudyDescription = caseStudyModal?.querySelector('[data-case-study-description]');
+  const caseStudyDetails = caseStudyModal?.querySelector('[data-case-study-details]');
+  const caseStudyDashboardLinks = document.querySelectorAll(".data-dashboard-link, .case-study-dashboard-link");
+  const caseStudyNotebookLink = document.querySelector(".case-study-notebook-link");
+  const dataProject = getDataProject();
+
   if (!caseStudyModal) return;
 
   activeCaseStudyTrigger = caseStudyOpenButton;
+  configureProjectLink(caseStudyNotebookLink, dataProject?.notebookUrl || "");
+  caseStudyDashboardLinks.forEach((link) => configureProjectLink(link, dataProject?.dashboardUrl || ""));
+
+  if (caseStudyImage && dataProject) {
+    caseStudyImage.src = dataProject.caseStudyImage || dataProject.image;
+    caseStudyImage.alt = getLocalizedValue(dataProject.imageAlt);
+  }
+
+  if (caseStudyTitle && dataProject) {
+    caseStudyTitle.textContent = getLocalizedValue(dataProject.title);
+  }
+
+  if (caseStudyEyebrow && dataProject?.caseStudy?.eyebrow) {
+    caseStudyEyebrow.textContent = getLocalizedValue(dataProject.caseStudy.eyebrow);
+  }
+
+  if (caseStudyDescription && dataProject?.caseStudy?.description) {
+    caseStudyDescription.textContent = getLocalizedValue(dataProject.caseStudy.description);
+  }
+
+  if (caseStudyDetails && dataProject?.caseStudy?.details) {
+    caseStudyDetails.textContent = getLocalizedValue(dataProject.caseStudy.details);
+  }
+
   caseStudyModal.setAttribute("aria-hidden", "false");
   caseStudyModal.classList.add("open");
   document.body.classList.add("case-study-modal-open");
@@ -562,7 +720,19 @@ const closeCaseStudyModal = () => {
   activeCaseStudyTrigger = null;
 };
 
-caseStudyOpenButton?.addEventListener("click", openCaseStudyModal);
+const initializeProjectCards = () => {
+  const activeProjectFilter = document.querySelector(".filter-btn.active")?.dataset.filter || "all";
+  const dataProject = getDataProject();
+  const caseStudyOpenButton = document.querySelector("[data-case-study-open]");
+  const caseStudyNotebookLink = document.querySelector(".case-study-notebook-link");
+  const caseStudyDashboardLinks = document.querySelectorAll(".data-dashboard-link, .case-study-dashboard-link");
+
+  caseStudyDashboardLinks.forEach((link) => configureProjectLink(link, dataProject?.dashboardUrl || ""));
+  configureProjectLink(caseStudyNotebookLink, dataProject?.notebookUrl || "");
+  caseStudyOpenButton?.addEventListener("click", openCaseStudyModal);
+
+  applyProjectFilter(activeProjectFilter);
+};
 
 caseStudyCloseButtons.forEach((button) => {
   button.addEventListener("click", closeCaseStudyModal);
@@ -575,16 +745,21 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-spotlightCards.forEach((card) => {
-  card.addEventListener("pointermove", (event) => {
-    const rect = card.getBoundingClientRect();
-    const x = event.clientX - rect.left;
-    const y = event.clientY - rect.top;
+const initSpotlightCards = () => {
+  getSpotlightCards().forEach((card) => {
+    if (card.dataset.spotlightBound === "true") return;
 
-    card.style.setProperty("--x", `${x}px`);
-    card.style.setProperty("--y", `${y}px`);
+    card.dataset.spotlightBound = "true";
+    card.addEventListener("pointermove", (event) => {
+      const rect = card.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+
+      card.style.setProperty("--x", `${x}px`);
+      card.style.setProperty("--y", `${y}px`);
+    });
   });
-});
+};
 
 const getCardCenter = (element) => {
   const { width, height } = element.getBoundingClientRect();
@@ -612,18 +787,33 @@ const getCursorAngle = (element, x, y) => {
   return degrees < 0 ? degrees + 360 : degrees;
 };
 
-borderGlowCards.forEach((card) => {
-  card.addEventListener("pointermove", (event) => {
-    const rect = card.getBoundingClientRect();
-    const x = event.clientX - rect.left;
-    const y = event.clientY - rect.top;
-    const edge = getEdgeProximity(card, x, y);
-    const angle = getCursorAngle(card, x, y);
+const initBorderGlowCards = () => {
+  getBorderGlowCards().forEach((card) => {
+    if (card.dataset.borderGlowBound === "true") return;
 
-    card.style.setProperty("--edge-proximity", `${(edge * 100).toFixed(3)}`);
-    card.style.setProperty("--cursor-angle", `${angle.toFixed(3)}deg`);
+    card.dataset.borderGlowBound = "true";
+    card.addEventListener("pointermove", (event) => {
+      const rect = card.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+      const edge = getEdgeProximity(card, x, y);
+      const angle = getCursorAngle(card, x, y);
+
+      card.style.setProperty("--edge-proximity", `${(edge * 100).toFixed(3)}`);
+      card.style.setProperty("--cursor-angle", `${angle.toFixed(3)}deg`);
+    });
   });
-});
+};
+
+const initializeDynamicContent = () => {
+  initializeCertificateCards();
+  initializeProjectCards();
+  initSpotlightCards();
+  initBorderGlowCards();
+  document.querySelectorAll(".reveal").forEach((element) => revealObserver.observe(element));
+};
+
+initializeDynamicContent();
 
 const readNumber = (value, fallback) => {
   const number = Number(value);
