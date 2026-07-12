@@ -14,30 +14,30 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="cursor-glow" aria-hidden="true"></div>
 
   <header class="site-header" id="siteHeader">
-    <nav class="navbar container" aria-label="Navigasi utama">
-      <a href="#home" class="brand" aria-label="Kembali ke beranda">
+    <nav class="navbar container" aria-label="Navigasi utama" data-i18n-aria-label="aria.nav">
+      <a href="#home" class="brand" aria-label="Kembali ke beranda" data-i18n-aria-label="aria.home">
         <!-- <span class="brand-mark">
           <img src="assets/img/profile.png" alt="Foto profil Ilham Prayoga" loading="lazy" />
         </span> -->
-        <span class="brand-text">Ilham Prayoga</span>
+        <span class="brand-text">Ilham Portfolio</span>
       </a>
 
-      <div class="nav-actions">
+        <div class="nav-actions">
         <div class="nav-menu" id="navMenu">
           <a href="#about" data-i18n="nav.about">Tentang</a>
-          <a href="#tech-stack" data-i18n="nav.techstack">Tech Stack</a>
+          <a href="#experience" data-i18n="nav.experience">Pengalaman</a>
           <a href="#certifications" data-i18n="nav.certifications">Sertifikasi</a>
           <a href="#projects" data-i18n="nav.projects">Project</a>
           <a href="#contact" data-i18n="nav.contact">Kontak</a>
         </div>
 
-        <button class="lang-toggle" id="langToggle" type="button" aria-label="Ganti bahasa">
+        <button class="lang-toggle" id="langToggle" type="button" aria-label="Ganti bahasa" data-i18n-aria-label="aria.lang">
           <img class="lang-icon-id" src="https://flagcdn.com/w40/id.png" alt="" width="20" height="14" />
           <img class="lang-icon-en" src="https://flagcdn.com/w40/gb.png" alt="" width="20" height="14" style="display: none;" />
           <span class="lang-text">ID</span>
@@ -48,7 +48,7 @@
           <span class="theme-icon theme-icon-moon" aria-hidden="true"></span>
         </button>
 
-        <button class="nav-toggle" id="navToggle" aria-label="Buka menu navigasi" aria-expanded="false">
+        <button class="nav-toggle" id="navToggle" aria-label="Buka menu navigasi" aria-expanded="false" data-i18n-aria-label="aria.nav_toggle">
           <span></span>
           <span></span>
           <span></span>
@@ -61,7 +61,7 @@
     <section class="hero section" id="home">
       <div class="hero-grid container">
         <div class="hero-content reveal">
-          <p class="eyebrow" data-i18n="hero.eyebrow">Software Developer, Quality Assurance, IoT Automation</p>
+          <!-- <p class="eyebrow" data-i18n="hero.eyebrow">Software Development, Quality Assurance, Data Analyst</p> -->
           <h1
             class="hero-title split-parent"
             data-split-text
@@ -71,10 +71,10 @@
             data-split-root-margin="-100px"
             data-i18n="hero.title"
             data-i18n-html="true"
-          >Membangun solusi digital yang <span class="gradient-text">simple, interaktif, dan fungsional.</span></h1>
+          >Analyze, Testing,<span class="gradient-text">Development</span></h1>
           <p class="hero-description" data-i18n="hero.description" data-i18n-html="true">
-            Halo, saya <strong>Ilham Prayoga</strong>. Saya tertarik pada pengembangan website,
-            sistem berbasis IoT, dan automasi proses menggunakan teknologi modern.
+            Halo, saya <strong>Ilham Prayoga</strong>. Saya tertarik pada Data Analysis dan Software Quality Assurance, 
+              mulai dari mengolah data menjadi insight hingga melakukan pengujian untuk memastikan kualitas aplikasi.
           </p>
 
           <div class="hero-actions">
@@ -87,7 +87,7 @@
             <span
               class="text-rotate hero-rotating-text"
               data-rotating-text
-              data-texts='["Software Development", "IoT Systems", "Quality Assurance"]'
+              data-texts='["Software Development", "Data Analyst", "Quality Assurance", "IoT Automation"]'
               data-rotation-interval="3200"
               data-stagger-duration="38"
               data-stagger-from="random"
@@ -101,26 +101,20 @@
             <div class="profile-top">
               <div class="profile-top-copy">
                 <h2>Ilham Prayoga</h2>
-                <p>Software Developer</p>
+                <p data-i18n="hero.card_role">Junior Data Analyst &amp; Quality Assurance</p>
               </div>
             </div>
 
             <div class="code-preview">
-              <div class="code-line"><span>const</span> focus = "Testing & Development";</div>
-              <div class="code-line"><span>const</span> stack = ["QA", "IoT", "API"];</div>
+              <div class="code-line" data-i18n="hero.code_focus" data-i18n-html="true"><span>const</span> focus = "Analytics &amp; Testing";</div>
+              <div class="code-line" data-i18n="hero.code_stack" data-i18n-html="true"><span>const</span> stack = ["Python", "Tableau", "Selenium"];</div>
               <div class="code-line"><span>build</span>("Portfolio");</div>
-            </div>
-
-            <div class="mini-tags">
-              <span>JavaScript</span>
-              <span>Selenium</span>
-              <span>Internet of Things</span>
             </div>
           </div>
         </div>
       </div>
 
-      <a href="#about" class="scroll-indicator" aria-label="Scroll ke bagian tentang">
+      <a href="#about" class="scroll-indicator" aria-label="Scroll ke bagian tentang" data-i18n-aria-label="aria.scroll_about">
         <span></span>
       </a>
     </section>
@@ -135,14 +129,14 @@
             style="--inner-gradient: linear-gradient(145deg, rgba(96, 73, 110, 0.45) 0%, rgba(113, 196, 255, 0.26) 100%); --behind-glow-color: rgba(125, 190, 255, 0.45);"
           >
             <div class="profile-card-shell">
-              <section class="profile-card-reactbits" aria-label="Profil Ilham Prayoga">
+              <section class="profile-card-reactbits" aria-label="Profil Ilham Prayoga" data-i18n-aria-label="aria.profile">
                 <div class="profile-card-pattern" aria-hidden="true"></div>
                 <div class="profile-card-shine" aria-hidden="true"></div>
                 <div class="profile-card-glare" aria-hidden="true"></div>
 
                 <div class="profile-details">
                   <h3>Ilham Prayoga</h3>
-                  <p>Software Developer</p>
+                  <p data-i18n="about.card_role">Junior Data Analyst &amp; SQA</p>
                 </div>
 
                 <img class="profile-avatar-main" src="assets/img/profile.png" alt="Foto profil Ilham Prayoga" loading="lazy" />
@@ -152,10 +146,10 @@
                     <img class="profile-mini-avatar" src="assets/img/profile.png" alt="" loading="lazy" />
                     <div class="profile-user-text">
                       <div class="profile-handle">@ilhamprygap</div>
-                      <div class="profile-status">Available</div>
+                      <div class="profile-status" data-i18n="about.profile_status">Available</div>
                     </div>
                   </div>
-                  <a class="profile-contact-btn" href="#contact" aria-label="Hubungi Ilham Prayoga">Contact</a>
+                  <a class="profile-contact-btn" href="#contact" aria-label="Hubungi Ilham Prayoga" data-i18n="about.profile_contact" data-i18n-aria-label="aria.contact_ilham">Contact</a>
                 </div>
               </section>
             </div>
@@ -164,14 +158,178 @@
 
         <div class="section-text reveal delay-1">
           <p data-i18n="about.p1">
-            Saya adalah mahasiswa Teknik Informatika yang memiliki ketertarikan pada
-            pengembangan aplikasi web, sistem IoT, integrasi API, dan automasi workflow.
-            Saya senang membangun project yang tidak hanya terlihat menarik, tetapi juga
-            memiliki fungsi nyata untuk membantu aktivitas pengguna.
+            Saya adalah fresh graduate Teknik Informatika. Saya memiliki minat pada bidang Data Analyst 
+            dan Software Quality Assurance, dengan pengalaman dalam pengolahan data, visualisasi, pengujian manual, 
+            API testing, dan automation testing. Selama perkuliahan, saya mengerjakan beberapa project berbasis IoT, Software Development, 
+            dan pengolahan data. Saya juga telah menyelesaikan Program Studi Independen MSIB Angkatan 7 sebagai IoT Engineer di Indobot Academy 
+            serta aktif dalam Himpunan Mahasiswa Teknik Informatika sebagai anggota Divisi IPTEK. Saat ini, saya sedang mencari kesempatan untuk 
+            memulai karier sebagai Junior Data Analyst atau Software Quality Assurance.
           </p>
+          <div class="about-highlights" aria-label="Ringkasan pencapaian">
+            <div class="about-highlight-item">
+              <strong data-i18n="about.stat_projects_title">5+ Project</strong>
+              <span data-i18n="about.stat_projects_line1">Telah</span>
+              <span data-i18n="about.stat_projects_line2">Diselesaikan</span>
+            </div>
+            <div class="about-highlight-item">
+              <strong data-i18n="about.stat_certs_title">5+ Sertifikat</strong>
+              <span data-i18n="about.stat_certs_line1">Pelatihan &amp;</span>
+              <span data-i18n="about.stat_certs_line2">Sertifikasi</span>
+            </div>
+            <div class="about-highlight-item">
+              <strong data-i18n="about.stat_msib_title">Alumni MSIB</strong>
+              <span data-i18n="about.stat_msib_line1">Angkatan 7</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
+
+    <section class="section experience-section" id="experience">
+      <div class="container">
+        <div class="section-heading centered reveal">
+          <p class="eyebrow" data-i18n="experience.eyebrow">Pengalaman</p>
+          <h2
+            class="blur-text"
+            data-blur-text
+            data-animate-by="words"
+            data-direction="top"
+            data-delay="180"
+            data-step-duration="720"
+            data-threshold="0.1"
+            data-root-margin="0px"
+            data-i18n="experience.heading"
+          >Pendidikan dan Pengalaman</h2>
+        </div>
+
+        <div class="experience-layout">
+          <div class="experience-overview reveal delay-1" id="experienceOverview"></div>
+          <div class="experience-grid" id="experienceGrid"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section certifications-section" id="certifications">
+      <div class="container">
+        <div class="section-heading centered reveal">
+          <p class="eyebrow" data-i18n="certifications.eyebrow">Pelatihan &amp; Sertifikasi</p>
+          <h2
+            class="blur-text"
+            data-blur-text
+            data-animate-by="words"
+            data-direction="top"
+            data-delay="180"
+            data-step-duration="720"
+            data-threshold="0.1"
+            data-root-margin="0px"
+            data-i18n="certifications.heading"
+          >Daftar Sertifikat</h2>
+        </div>
+
+        <div class="certificate-filter reveal" role="group" aria-label="Filter pelatihan dan sertifikasi" data-i18n-aria-label="aria.cert_filter">
+          <button class="certificate-filter-btn active" type="button" data-certificate-filter="all" data-i18n="certifications.filter_all">Semua</button>
+          <button class="certificate-filter-btn" type="button" data-certificate-filter="data" data-i18n="certifications.filter_data">Data Analytics</button>
+          <button class="certificate-filter-btn" type="button" data-certificate-filter="database" data-i18n="certifications.filter_database">Database</button>
+          <button class="certificate-filter-btn" type="button" data-certificate-filter="training" data-i18n="certifications.filter_training">Pelatihan</button>
+        </div>
+
+        <div class="certificates-grid featured-mode" id="certificatesGrid"></div>
+
+        <div class="certificate-gallery-actions reveal">
+          <button
+            class="certificate-gallery-toggle"
+            id="certificateGalleryToggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="certificatesGrid"
+            data-label-id="Lihat Semua Sertifikat"
+            data-label-en="View All Certificates"
+            data-collapse-id="Tampilkan Lebih Sedikit"
+            data-collapse-en="Show Less"
+          >
+            <span class="certificate-gallery-toggle-label">Lihat Semua Sertifikat</span>
+            <span class="certificate-gallery-count">9</span>
+            <span class="certificate-gallery-toggle-icon" aria-hidden="true">↓</span>
+          </button>
+          <p class="certificate-swipe-hint" data-i18n="certifications.swipe_hint">Geser untuk melihat sertifikat unggulan lainnya →</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="certificate-modal" id="certificateModal" aria-hidden="true">
+      <button class="certificate-modal-backdrop" type="button" data-certificate-modal-close tabindex="-1" aria-label="Tutup pratinjau sertifikat" data-i18n-aria-label="aria.close_certificate_preview"></button>
+      <div class="certificate-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="certificateModalTitle">
+        <button class="certificate-modal-close" type="button" data-certificate-modal-close aria-label="Tutup pratinjau sertifikat" data-i18n-aria-label="aria.close_certificate_preview">
+          <span aria-hidden="true">×</span>
+        </button>
+        <div class="certificate-modal-image-wrap">
+          <img id="certificateModalImage" src="assets/img/certificate-placeholder.svg" alt="" />
+        </div>
+        <div class="certificate-modal-caption">
+          <h3 id="certificateModalTitle">Pratinjau Sertifikat</h3>
+          <p id="certificateModalSource"></p>
+        </div>
+      </div>
+    </div>
+
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-heading centered reveal">
+          <p class="eyebrow" data-i18n="projects.eyebrow">Project</p>
+          <h2
+            class="blur-text"
+            data-blur-text
+            data-animate-by="words"
+            data-direction="top"
+            data-delay="420"
+            data-step-duration="980"
+            data-threshold="0.1"
+            data-root-margin="0px"
+            data-i18n="projects.heading"
+          >Beberapa project yang relevan dengan fokus saya.</h2>
+        </div>
+
+        <div class="project-filter reveal">
+          <button class="filter-btn active" data-filter="all" data-i18n="projects.filter_all">Semua</button>
+          <button class="filter-btn" data-filter="web" data-i18n="projects.filter_web">Web</button>
+          <button class="filter-btn" data-filter="iot">IoT</button>
+          <button class="filter-btn" data-filter="automation" data-i18n="projects.filter_automation">Automation</button>
+          <button class="filter-btn" data-filter="data" data-i18n="projects.filter_data">Data Analyst</button>
+        </div>
+
+        <div class="projects-grid" id="projectsGrid"></div>
+      </div>
+    </section>
+
+    <div class="case-study-modal" id="caseStudyModal" aria-hidden="true">
+      <button class="case-study-modal-backdrop" type="button" data-case-study-close tabindex="-1" aria-label="Tutup case study" data-i18n-aria-label="aria.close_case_study"></button>
+      <div class="case-study-dialog" role="dialog" aria-modal="true" aria-labelledby="caseStudyTitle">
+        <button class="case-study-close" type="button" data-case-study-close aria-label="Tutup case study" data-i18n-aria-label="aria.close_case_study">
+          <span aria-hidden="true">×</span>
+        </button>
+
+        <div class="case-study-media">
+          <img src="assets/img/data-analytics-project-placeholder.svg" alt="Preview Data Analytics Dashboard" />
+        </div>
+
+        <div class="case-study-content">
+          <p class="case-study-eyebrow">Data Analyst Project</p>
+          <h3 id="caseStudyTitle">Data Analytics Dashboard</h3>
+          <div class="case-study-description">
+            <p data-case-study-description>
+              Studi kasus ini mendokumentasikan proses analisis mulai dari memahami kebutuhan,
+              membersihkan data, melakukan eksplorasi, hingga menyusun insight pada dashboard Tableau.
+            </p>
+            <p data-case-study-details>
+              Notebook digunakan untuk proses data preparation dan exploratory data analysis,
+              sedangkan dashboard menyajikan hasil akhir agar mudah dipahami dan digunakan dalam pengambilan keputusan.
+            </p>
+          </div>
+
+          <div class="case-study-actions" id="caseStudyActions"></div>
+        </div>
+      </div>
+    </div>
 
     <section class="section tech-stack-section" id="tech-stack">
       <div class="container">
@@ -180,7 +338,7 @@
           <h2
             class="text-type tech-stack-title"
             data-text-type
-            data-text='["Software Development", "Quality Assurance", "IoT Automation"]'
+            data-text='["Data Analytics", "Quality Assurance", "Software Development",  "IoT Automation"]'
             data-typing-speed="75"
             data-deleting-speed="34"
             data-pause-duration="1500"
@@ -236,7 +394,7 @@
                 <li class="logoloop__item" role="listitem"><span class="logoloop__node stack-card"><i class="devicon-git-plain colored"></i><span>Git</span></span></li>
                 <li class="logoloop__item" role="listitem"><span class="logoloop__node stack-card"><i class="devicon-github-plain colored"></i><span>GitHub</span></span></li>
                 <li class="logoloop__item" role="listitem"><span class="logoloop__node stack-card"><i class="devicon-docker-plain colored"></i><span>Docker</span></span></li>
-                <li class="logoloop__item" role="listitem"><span class="logoloop__node stack-card"><span class="stack-fallback">IoT</span><span>IoT</span></span></li>
+                <li class="logoloop__item" role="listitem"><span class="logoloop__node stack-card"><i class="devicon-arduino-plain-wordmark"></i><span>IoT</span></span></li>
                 <li class="logoloop__item" role="listitem"><span class="logoloop__node stack-card"><i class="devicon-selenium-plain colored"></i><span>Selenium</span></span></li>
                 <li class="logoloop__item" role="listitem"><span class="logoloop__node stack-card"><i class="devicon-cypressio-plain"></i><span>Cypress</span></span></li>
                 <li class="logoloop__item" role="listitem"><span class="logoloop__node stack-card"><i class="devicon-postman-plain colored"></i><span>Postman</span></span></li>
@@ -247,131 +405,6 @@
       </div>
     </section>
 
-    <section class="section certifications-section" id="certifications">
-      <div class="container">
-        <div class="section-heading centered reveal">
-          <p class="eyebrow" data-i18n="certifications.eyebrow">Pelatihan &amp; Sertifikasi</p>
-          <h2
-            class="blur-text"
-            data-blur-text
-            data-animate-by="words"
-            data-direction="top"
-            data-delay="180"
-            data-step-duration="720"
-            data-threshold="0.1"
-            data-root-margin="0px"
-            data-i18n="certifications.heading"
-          >Daftar Sertifikat</h2>
-        </div>
-
-        <div class="certificate-filter reveal" role="group" aria-label="Filter pelatihan dan sertifikasi">
-          <button class="certificate-filter-btn active" type="button" data-certificate-filter="all" data-i18n="certifications.filter_all">Semua</button>
-          <button class="certificate-filter-btn" type="button" data-certificate-filter="data">Data Analytics</button>
-          <button class="certificate-filter-btn" type="button" data-certificate-filter="database">Database</button>
-          <button class="certificate-filter-btn" type="button" data-certificate-filter="training" data-i18n="certifications.filter_training">Pelatihan</button>
-        </div>
-
-        <div class="certificates-grid featured-mode" id="certificatesGrid"></div>
-
-        <div class="certificate-gallery-actions reveal">
-          <button
-            class="certificate-gallery-toggle"
-            id="certificateGalleryToggle"
-            type="button"
-            aria-expanded="false"
-            aria-controls="certificatesGrid"
-            data-label-id="Lihat Semua Sertifikat"
-            data-label-en="View All Certificates"
-            data-collapse-id="Tampilkan Lebih Sedikit"
-            data-collapse-en="Show Less"
-          >
-            <span class="certificate-gallery-toggle-label">Lihat Semua Sertifikat</span>
-            <span class="certificate-gallery-count">9</span>
-            <span class="certificate-gallery-toggle-icon" aria-hidden="true">↓</span>
-          </button>
-          <p class="certificate-swipe-hint" data-i18n="certifications.swipe_hint">Geser untuk melihat sertifikat unggulan lainnya →</p>
-        </div>
-      </div>
-    </section>
-
-    <div class="certificate-modal" id="certificateModal" aria-hidden="true">
-      <button class="certificate-modal-backdrop" type="button" data-certificate-modal-close tabindex="-1" aria-label="Tutup pratinjau sertifikat"></button>
-      <div class="certificate-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="certificateModalTitle">
-        <button class="certificate-modal-close" type="button" data-certificate-modal-close aria-label="Tutup pratinjau sertifikat">
-          <span aria-hidden="true">×</span>
-        </button>
-        <div class="certificate-modal-image-wrap">
-          <img id="certificateModalImage" src="assets/img/certificate-placeholder.svg" alt="" />
-        </div>
-        <div class="certificate-modal-caption">
-          <h3 id="certificateModalTitle">Pratinjau Sertifikat</h3>
-          <p id="certificateModalSource"></p>
-        </div>
-      </div>
-    </div>
-
-    <section class="section" id="projects">
-      <div class="container">
-        <div class="section-heading centered reveal">
-          <p class="eyebrow" data-i18n="projects.eyebrow">Project</p>
-          <h2
-            class="blur-text"
-            data-blur-text
-            data-animate-by="words"
-            data-direction="top"
-            data-delay="420"
-            data-step-duration="980"
-            data-threshold="0.1"
-            data-root-margin="0px"
-            data-i18n="projects.heading"
-          >Beberapa project yang relevan dengan fokus saya.</h2>
-        </div>
-
-        <div class="project-filter reveal">
-          <button class="filter-btn active" data-filter="all" data-i18n="projects.filter_all">Semua</button>
-          <button class="filter-btn" data-filter="web">Web</button>
-          <button class="filter-btn" data-filter="iot">IoT</button>
-          <button class="filter-btn" data-filter="automation">Automation</button>
-          <button class="filter-btn" data-filter="data">Data Analyst</button>
-        </div>
-
-        <div class="projects-grid" id="projectsGrid"></div>
-      </div>
-    </section>
-
-    <div class="case-study-modal" id="caseStudyModal" aria-hidden="true">
-      <button class="case-study-modal-backdrop" type="button" data-case-study-close tabindex="-1" aria-label="Tutup case study"></button>
-      <div class="case-study-dialog" role="dialog" aria-modal="true" aria-labelledby="caseStudyTitle">
-        <button class="case-study-close" type="button" data-case-study-close aria-label="Tutup case study">
-          <span aria-hidden="true">×</span>
-        </button>
-
-        <div class="case-study-media">
-          <img src="assets/img/data-analytics-project-placeholder.svg" alt="Preview Data Analytics Dashboard" />
-        </div>
-
-        <div class="case-study-content">
-          <p class="case-study-eyebrow">Data Analyst Project</p>
-          <h3 id="caseStudyTitle">Data Analytics Dashboard</h3>
-          <div class="case-study-description">
-            <p data-case-study-description>
-              Studi kasus ini mendokumentasikan proses analisis mulai dari memahami kebutuhan,
-              membersihkan data, melakukan eksplorasi, hingga menyusun insight pada dashboard Tableau.
-            </p>
-            <p data-case-study-details>
-              Notebook digunakan untuk proses data preparation dan exploratory data analysis,
-              sedangkan dashboard menyajikan hasil akhir agar mudah dipahami dan digunakan dalam pengambilan keputusan.
-            </p>
-          </div>
-
-          <div class="case-study-actions">
-            <a class="btn btn-primary case-study-dashboard-link" href="#" target="_blank" rel="noopener">Dashboard</a>
-            <a class="btn btn-secondary case-study-notebook-link" href="#" target="_blank" rel="noopener">Notebook</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <section class="section contact-section" id="contact">
       <div class="container contact-grid">
         <div class="section-heading reveal">
@@ -379,7 +412,6 @@
           <h2 data-i18n="contact.heading" data-i18n-html="true">Mari terhubung untuk <span class="contact-highlight contact-highlight--first">project, kolaborasi,</span> <span class="contact-highlight contact-highlight--second">atau peluang kerja.</span></h2>
           <p data-i18n="contact.description">
             Silakan hubungi saya melalui email, WhatsApp, LinkedIn, atau GitHub.
-            Saya terbuka untuk diskusi project web, IoT, maupun automasi.
           </p>
         </div>
 
@@ -412,6 +444,7 @@
     </div>
   </footer>
 
+  <script src="assets/js/data/experience.js"></script>
   <script src="assets/js/data/certificates.js"></script>
   <script src="assets/js/data/projects.js"></script>
   <script src="assets/js/script.js"></script>

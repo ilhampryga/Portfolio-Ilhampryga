@@ -14,6 +14,8 @@ const blurTextElements = document.querySelectorAll("[data-blur-text]");
 const rotatingTextElements = document.querySelectorAll("[data-rotating-text]");
 const contactHighlights = document.querySelectorAll(".contact-highlight");
 const certificateFilterButtons = document.querySelectorAll("[data-certificate-filter]");
+const experienceOverview = document.getElementById("experienceOverview");
+const experienceGrid = document.getElementById("experienceGrid");
 const certificationsSection = document.getElementById("certifications");
 const certificatesGrid = document.getElementById("certificatesGrid");
 const certificateGalleryToggle = document.getElementById("certificateGalleryToggle");
@@ -27,9 +29,13 @@ const certificateModalCloseButtons = document.querySelectorAll("[data-certificat
 const projectsGrid = document.getElementById("projectsGrid");
 const caseStudyModal = document.getElementById("caseStudyModal");
 const caseStudyCloseButtons = document.querySelectorAll("[data-case-study-close]");
+const caseStudyActions = document.getElementById("caseStudyActions");
 const cursorGlow = document.querySelector(".cursor-glow");
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const LOGO_LOOP_CONFIG = { SMOOTH_TAU: 0.25, MIN_COPIES: 2, COPY_HEADROOM: 2 };
+const experienceData = window.PORTFOLIO_EXPERIENCE && typeof window.PORTFOLIO_EXPERIENCE === "object"
+  ? window.PORTFOLIO_EXPERIENCE
+  : null;
 const certificateData = Array.isArray(window.PORTFOLIO_CERTIFICATES) ? window.PORTFOLIO_CERTIFICATES : [];
 const projectData = Array.isArray(window.PORTFOLIO_PROJECTS) ? window.PORTFOLIO_PROJECTS : [];
 const getProjectCards = () => [...document.querySelectorAll(".project-card")];
@@ -91,28 +97,59 @@ if (themeToggle) {
 const i18n = {
   id: {
     "nav.about": "Tentang",
-    "nav.techstack": "Tech Stack",
+    "nav.experience": "Pengalaman",
     "nav.certifications": "Sertifikasi",
     "nav.projects": "Project",
     "nav.contact": "Kontak",
+    "aria.nav": "Navigasi utama",
+    "aria.home": "Kembali ke beranda",
+    "aria.lang": "Ganti bahasa",
+    "aria.nav_toggle": "Buka menu navigasi",
+    "aria.scroll_about": "Scroll ke bagian tentang",
+    "aria.profile": "Profil Ilham Prayoga",
+    "aria.contact_ilham": "Hubungi Ilham Prayoga",
+    "aria.cert_filter": "Filter pelatihan dan sertifikasi",
+    "aria.close_certificate_preview": "Tutup pratinjau sertifikat",
+    "aria.close_case_study": "Tutup case study",
     "hero.eyebrow": "Software Developer &bull; Web &bull; IoT &bull; Automation",
-    "hero.title": 'Membangun solusi digital yang <span class="gradient-text">simple, interaktif, dan fungsional.</span>',
-    "hero.description": 'Halo, saya <strong>Ilham Prayoga</strong>. Saya tertarik pada pengembangan website, sistem berbasis IoT, dan automasi proses menggunakan teknologi modern.',
+    "hero.title": 'Analyze, Testing,<span class="gradient-text">Development</span>',
+    "hero.description": 'Halo, saya <strong>Ilham Prayoga</strong>. Saya tertarik pada Data Analysis dan Software Quality Assurance, mulai dari mengolah data menjadi insight hingga melakukan pengujian untuk memastikan kualitas aplikasi.',
     "hero.cta_projects": "Lihat Project",
     "hero.cta_cv": "Download CV",
     "hero.ready": "Open to Work",
+    "hero.card_role": "Junior Data Analyst & Quality Assurance",
+    "hero.code_focus": '<span>const</span> focus = "Analytics &amp; Testing";',
+    "hero.code_stack": '<span>const</span> stack = ["Python", "Tableau", "Selenium"];',
     "about.eyebrow": "Tentang Saya",
-    "about.p1": "Saya adalah mahasiswa Teknik Informatika yang memiliki ketertarikan pada pengembangan aplikasi web, sistem IoT, integrasi API, dan automasi workflow. Saya senang membangun project yang tidak hanya terlihat menarik, tetapi juga memiliki fungsi nyata untuk membantu aktivitas pengguna.",
+    "about.p1": "Saya adalah fresh graduate Teknik Informatika. Saya memiliki minat pada bidang Data Analyst dan Software Quality Assurance, dengan pengalaman dalam pengolahan data, visualisasi, pengujian manual, API testing, dan automation testing. Selama perkuliahan, saya mengerjakan beberapa project berbasis IoT, Software Development, dan pengolahan data. Saya juga telah menyelesaikan Program Studi Independen MSIB Angkatan 7 sebagai IoT Engineer di Indobot Academy serta aktif dalam Himpunan Mahasiswa Teknik Informatika sebagai anggota Divisi IPTEK. Saat ini, saya sedang mencari kesempatan untuk memulai karier sebagai Junior Data Analyst atau Software Quality Assurance.",
     "about.p2": "Fokus saya adalah membuat antarmuka yang mudah digunakan, struktur kode yang jelas, dan pengalaman pengguna yang sederhana namun tetap interaktif.",
+    "about.card_role": "Junior Data Analyst & SQA",
+    "about.profile_status": "Available",
+    "about.profile_contact": "Contact",
+    "about.stat_projects_title": "5+ Project",
+    "about.stat_projects_line1": "Telah",
+    "about.stat_projects_line2": "Diselesaikan",
+    "about.stat_certs_title": "5+ Sertifikat",
+    "about.stat_certs_line1": "Pelatihan &",
+    "about.stat_certs_line2": "Sertifikasi",
+    "about.stat_msib_title": "Alumni MSIB",
+    "about.stat_msib_line1": "Angkatan 7",
+    "experience.eyebrow": "Pengalaman",
+    "experience.heading": "Pendidikan dan Pengalaman",
     "certifications.eyebrow": "Pelatihan & Sertifikasi",
-    "certifications.heading": "Perjalanan belajar yang mendukung fokus profesional saya.",
+    "certifications.heading": "Daftar Sertifikat",
     "certifications.description": "Ruang untuk pelatihan dan sertifikasi di bidang Data Analytics, Software Quality Assurance, serta pengembangan profesional.",
     "certifications.filter_all": "Semua",
+    "certifications.filter_data": "Data Analytics",
+    "certifications.filter_database": "Database",
     "certifications.filter_training": "Pelatihan",
     "certifications.swipe_hint": "Geser untuk melihat sertifikat unggulan lainnya →",
     "projects.eyebrow": "Project",
     "projects.heading": "Beberapa project yang relevan dengan fokus saya.",
     "projects.filter_all": "Semua",
+    "projects.filter_web": "Web",
+    "projects.filter_automation": "Automation",
+    "projects.filter_data": "Data Analyst",
     "projects.coming_soon": "Coming Soon Project...",
     "project1.desc": "Sistem irigasi tetes berbasis IoT untuk tanaman cabai menggunakan perhitungan ETc Hargreaves-Samani dan Fuzzy Logic.",
     "project2.desc": "Workflow otomatis untuk mencatat pemasukan dan pengeluaran melalui Telegram, kemudian menyimpan data ke Google Sheets.",
@@ -127,33 +164,64 @@ const i18n = {
     "case_study.details": "Notebook digunakan untuk proses data preparation dan exploratory data analysis, sedangkan dashboard menyajikan hasil akhir agar mudah dipahami dan digunakan dalam pengambilan keputusan.",
     "contact.eyebrow": "Kontak",
     "contact.heading": 'Mari terhubung untuk <span class="contact-highlight contact-highlight--first">project, kolaborasi,</span> <span class="contact-highlight contact-highlight--second">atau peluang kerja.</span>',
-    "contact.description": "Silakan hubungi saya melalui email, WhatsApp, LinkedIn, atau GitHub. Saya terbuka untuk diskusi project web, IoT, maupun automasi.",
+    "contact.description": "Silakan hubungi saya melalui email, WhatsApp, LinkedIn, atau GitHub.",
     "footer.back_to_top": "Kembali ke atas"
   },
   en: {
     "nav.about": "About",
-    "nav.techstack": "Tech Stack",
+    "nav.experience": "Experience",
     "nav.certifications": "Certifications",
     "nav.projects": "Projects",
     "nav.contact": "Contact",
+    "aria.nav": "Main navigation",
+    "aria.home": "Back to home",
+    "aria.lang": "Change language",
+    "aria.nav_toggle": "Open navigation menu",
+    "aria.scroll_about": "Scroll to about section",
+    "aria.profile": "Ilham Prayoga profile",
+    "aria.contact_ilham": "Contact Ilham Prayoga",
+    "aria.cert_filter": "Training and certification filter",
+    "aria.close_certificate_preview": "Close certificate preview",
+    "aria.close_case_study": "Close case study",
     "hero.eyebrow": "Software Developer &bull; Web &bull; IoT &bull; Automation",
-    "hero.title": 'Building digital solutions that are <span class="gradient-text">simple, interactive, and functional.</span>',
-    "hero.description": 'Hi, I\'m <strong>Ilham Prayoga</strong>. I\'m passionate about web development, IoT-based systems, and process automation using modern technologies.',
+    "hero.title": 'Analyze, Testing,<span class="gradient-text">Development</span>',
+    "hero.description": 'Hi, I\'m <strong>Ilham Prayoga</strong>. I am interested in Data Analysis and Software Quality Assurance, from turning data into insights to testing applications to ensure their quality.',
     "hero.cta_projects": "View Projects",
     "hero.cta_cv": "Download CV",
     "hero.ready": "Open to Work",
+    "hero.card_role": "Junior Data Analyst & Quality Assurance",
+    "hero.code_focus": '<span>const</span> focus = "Analytics &amp; Testing";',
+    "hero.code_stack": '<span>const</span> stack = ["Python", "Tableau", "Selenium"];',
     "about.eyebrow": "About Me",
-    "about.p1": "I am an Informatics Engineering student with a keen interest in web application development, IoT systems, API integration, and workflow automation. I enjoy building projects that are not only visually appealing but also have real functionality to help users.",
+    "about.p1": "I am a fresh graduate in Informatics Engineering. I am interested in Data Analysis and Software Quality Assurance, with experience in data processing, visualization, manual testing, API testing, and automation testing. During college, I worked on several projects in IoT, software development, and data processing. I also completed the MSIB Batch 7 Independent Study Program as an IoT Engineer at Indobot Academy and was active in the Informatics Engineering Student Association as a member of the Science and Technology Division. I am currently looking for an opportunity to start my career as a Junior Data Analyst or Software Quality Assurance professional.",
     "about.p2": "My focus is on creating user-friendly interfaces, clean code structure, and a simple yet interactive user experience.",
+    "about.card_role": "Junior Data Analyst & SQA",
+    "about.profile_status": "Available",
+    "about.profile_contact": "Contact",
+    "about.stat_projects_title": "5+ Projects",
+    "about.stat_projects_line1": "Completed",
+    "about.stat_projects_line2": "",
+    "about.stat_certs_title": "5+ Certificates",
+    "about.stat_certs_line1": "Training &",
+    "about.stat_certs_line2": "Certifications",
+    "about.stat_msib_title": "MSIB Alumni",
+    "about.stat_msib_line1": "Batch 7",
+    "experience.eyebrow": "Experience",
+    "experience.heading": "Education and Experience",
     "certifications.eyebrow": "Training & Certifications",
-    "certifications.heading": "A learning journey that supports my professional focus.",
+    "certifications.heading": "Certificate List",
     "certifications.description": "A dedicated space for training and certifications in Data Analytics, Software Quality Assurance, and professional development.",
     "certifications.filter_all": "All",
+    "certifications.filter_data": "Data Analytics",
+    "certifications.filter_database": "Database",
     "certifications.filter_training": "Training",
     "certifications.swipe_hint": "Swipe to see more featured certificates →",
     "projects.eyebrow": "Projects",
     "projects.heading": "Some projects that are relevant to my focus.",
     "projects.filter_all": "All",
+    "projects.filter_web": "Web",
+    "projects.filter_automation": "Automation",
+    "projects.filter_data": "Data Analyst",
     "projects.coming_soon": "Coming Soon Project...",
     "project1.desc": "An IoT-based drip irrigation system for chili plants using ETc Hargreaves-Samani calculation and Fuzzy Logic.",
     "project2.desc": "Automated workflow for tracking income and expenses via Telegram, then saving the data to Google Sheets.",
@@ -168,7 +236,7 @@ const i18n = {
     "case_study.details": "The notebook is used for data preparation and exploratory data analysis, while the dashboard presents the final results for clear communication and decision-making.",
     "contact.eyebrow": "Contact",
     "contact.heading": 'Let\'s connect for <span class="contact-highlight contact-highlight--first">projects, collaborations,</span> <span class="contact-highlight contact-highlight--second">or job opportunities.</span>',
-    "contact.description": "Feel free to reach me via email, WhatsApp, LinkedIn, or GitHub. I'm open to discussions about web projects, IoT, or automation.",
+    "contact.description": "Feel free to contact me via email, WhatsApp, LinkedIn, or GitHub.",
     "footer.back_to_top": "Back to top"
   }
 };
@@ -234,7 +302,61 @@ const renderCertificateCard = (item, index, lang) => {
   `;
 };
 
-const renderProjectCard = (item, lang) => {
+const renderExperience = (lang = getCurrentLang()) => {
+  if (!experienceOverview || !experienceGrid || !experienceData) return;
+
+  const statsMarkup = Array.isArray(experienceData.overview?.stats)
+    ? experienceData.overview.stats.map((stat) => `
+      <div class="experience-stat">
+        <strong>${escapeHtml(stat.value)}</strong>
+        <span>${escapeHtml(getLocalizedValue(stat.label, lang))}</span>
+      </div>
+    `).join("")
+    : "";
+
+  const education = experienceData.overview?.education || {};
+
+  experienceOverview.innerHTML = `
+    <div class="experience-intro reveal delay-1">
+      <p>${escapeHtml(getLocalizedValue(experienceData.overview?.intro, lang))}</p>
+      <div class="experience-stats">
+        ${statsMarkup}
+      </div>
+    </div>
+    <div class="experience-education reveal delay-2">
+      <p class="experience-card-kicker">${escapeHtml(getLocalizedValue(education.eyebrow, lang))}</p>
+      <div class="experience-education-row">
+        <div class="experience-education-main">
+          <h3>${escapeHtml(getLocalizedValue(education.institution, lang))}</h3>
+          <p>${escapeHtml(getLocalizedValue(education.program, lang))} ${escapeHtml(getLocalizedValue(education.degree, lang))}</p>
+        </div>
+        <div class="experience-education-side">
+          <strong>${escapeHtml(getLocalizedValue(education.period, lang))}</strong>
+        </div>
+      </div>
+      <p class="experience-education-summary">${escapeHtml(getLocalizedValue(education.summary, lang))}</p>
+    </div>
+  `;
+
+  experienceGrid.innerHTML = Array.isArray(experienceData.items)
+    ? experienceData.items.map((item) => `
+      <article class="experience-item reveal ${escapeHtml(item.delayClass || "")}" data-accent="${escapeHtml(item.accent || "primary")}">
+        <div class="experience-item-marker" aria-hidden="true"></div>
+        <div class="experience-item-body">
+          <p class="experience-card-kicker">${escapeHtml(getLocalizedValue(item.label, lang))}</p>
+          <div class="experience-item-heading">
+            <h3>${escapeHtml(getLocalizedValue(item.title, lang))}</h3>
+            <span class="experience-item-period">${escapeHtml(getLocalizedValue(item.period, lang))}</span>
+          </div>
+          <p class="experience-item-role">${escapeHtml(getLocalizedValue(item.role, lang))}</p>
+          <p class="experience-card-description">${escapeHtml(getLocalizedValue(item.description, lang))}</p>
+        </div>
+      </article>
+    `).join("")
+    : "";
+};
+
+const renderProjectCard = (item, lang, index) => {
   if (item.kind === "coming-soon") {
     return `
       <article class="project-card project-card--coming-soon border-glow-card reveal ${escapeHtml(item.delayClass || "")}" data-category="${escapeHtml(item.category || "soon")}">
@@ -252,31 +374,28 @@ const renderProjectCard = (item, lang) => {
   const tags = Array.isArray(item.tags) ? item.tags.map((tag) => `<span>${escapeHtml(tag)}</span>`).join("") : "";
   const extraClasses = [
     "project-card",
-    item.kind === "data-project" ? "project-card--data" : "",
+    item.modal ? "project-card--data" : "",
     "spotlight-card",
     "reveal",
     item.delayClass || ""
   ].filter(Boolean).join(" ");
-  const dataProjectAttributes = item.kind === "data-project"
-    ? ` data-data-project data-dashboard-url="${escapeHtml(item.dashboardUrl || "")}" data-notebook-url="${escapeHtml(item.notebookUrl || "")}" data-case-study-image="${escapeHtml(item.caseStudyImage || item.image)}"`
+  const linksMarkup = Array.isArray(item.links)
+    ? item.links.map((link) => {
+      const url = typeof link.url === "string" && link.url.trim() ? link.url.trim() : "#";
+      const hasUrl = /^https?:\/\//i.test(url);
+      const className = link.className ? ` class="${escapeHtml(link.className)}"` : "";
+      const rel = hasUrl ? ' rel="noopener"' : "";
+      const ariaDisabled = hasUrl ? "" : ' aria-disabled="true"';
+
+      return `<a${className} href="${escapeHtml(url)}" target="_blank"${rel}${ariaDisabled}>${escapeHtml(getLocalizedValue(link.label, lang))}</a>`;
+    }).join("")
+    : "";
+  const caseStudyButtonMarkup = item.modal
+    ? `<button class="project-link-button" type="button" data-case-study-open data-project-index="${escapeHtml(index)}">${escapeHtml(getLocalizedValue(item.modal.buttonLabel, lang) || "Case Study")}</button>`
     : "";
 
-  let linksMarkup = "";
-
-  if (item.kind === "data-project") {
-    linksMarkup = `
-      <a class="data-dashboard-link" href="${escapeHtml(item.dashboardUrl || "#")}" target="_blank" rel="noopener">Dashboard</a>
-      <button class="project-link-button" type="button" data-case-study-open>Case Study</button>
-    `;
-  } else {
-    linksMarkup = `
-      <a href="${escapeHtml(item.demoUrl || "#")}" target="_blank" rel="noopener">${lang === "en" ? "Demo" : "Demo"}</a>
-      <a href="${escapeHtml(item.githubUrl || "#")}" target="_blank" rel="noopener">GitHub</a>
-    `;
-  }
-
   return `
-    <article class="${extraClasses}" data-category="${escapeHtml(item.category)}"${dataProjectAttributes}>
+    <article class="${extraClasses}" data-category="${escapeHtml(item.category)}">
       <div class="project-image">
         <img src="${escapeHtml(item.image)}" alt="${escapeHtml(imageAlt)}" loading="lazy">
       </div>
@@ -288,13 +407,12 @@ const renderProjectCard = (item, lang) => {
         </div>
         <div class="project-links">
           ${linksMarkup}
+          ${caseStudyButtonMarkup}
         </div>
       </div>
     </article>
   `;
 };
-
-const getDataProject = () => projectData.find((item) => item.kind === "data-project") || null;
 
 const renderCertificates = (lang = getCurrentLang()) => {
   if (!certificatesGrid) return;
@@ -309,14 +427,15 @@ const renderProjects = (lang = getCurrentLang()) => {
   const bottomProjects = projectData.slice(3);
 
   projectsGrid.innerHTML = `
-    ${topProjects.map((item) => renderProjectCard(item, lang)).join("")}
+    ${topProjects.map((item, index) => renderProjectCard(item, lang, index)).join("")}
     <div class="projects-bottom-row">
-      ${bottomProjects.map((item) => renderProjectCard(item, lang)).join("")}
+      ${bottomProjects.map((item, index) => renderProjectCard(item, lang, index + topProjects.length)).join("")}
     </div>
   `;
 };
 
 const renderDynamicContent = (lang = getCurrentLang()) => {
+  renderExperience(lang);
   renderCertificates(lang);
   renderProjects(lang);
 };
@@ -339,6 +458,15 @@ const applyLang = (lang) => {
       element.innerHTML = value;
     } else {
       element.textContent = value;
+    }
+  });
+
+  document.querySelectorAll("[data-i18n-aria-label]").forEach((element) => {
+    const key = element.getAttribute("data-i18n-aria-label");
+    const value = dict[key];
+
+    if (value !== undefined) {
+      element.setAttribute("aria-label", value);
     }
   });
 
@@ -554,7 +682,9 @@ const resetCertificateFilters = () => {
   getCertificateCards().forEach((card) => card.classList.remove("hide"));
 };
 
-const setCertificateGalleryExpanded = (isExpanded) => {
+const setCertificateGalleryExpanded = (isExpanded, options = {}) => {
+  const { shouldScrollOnCollapse = false } = options;
+
   if (!certificationsSection || !certificatesGrid) return;
 
   certificationsSection.classList.toggle("gallery-expanded", isExpanded);
@@ -576,14 +706,14 @@ const setCertificateGalleryExpanded = (isExpanded) => {
 
   updateCertificateGalleryToggle(isExpanded);
 
-  if (!isExpanded) {
+  if (!isExpanded && shouldScrollOnCollapse) {
     certificationsSection.scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth", block: "start" });
   }
 };
 
 certificateGalleryToggle?.addEventListener("click", () => {
   const isExpanded = certificateGalleryToggle.getAttribute("aria-expanded") === "true";
-  setCertificateGalleryExpanded(!isExpanded);
+  setCertificateGalleryExpanded(!isExpanded, { shouldScrollOnCollapse: true });
 });
 
 updateCertificateGalleryToggle(false);
@@ -662,43 +792,51 @@ const configureProjectLink = (link, url) => {
 
 let activeCaseStudyTrigger = null;
 
-const openCaseStudyModal = () => {
-  const caseStudyOpenButton = document.querySelector("[data-case-study-open]");
-  const dataProjectCard = document.querySelector("[data-data-project]");
+const openCaseStudyModal = (projectIndex, triggerButton) => {
   const caseStudyImage = caseStudyModal?.querySelector(".case-study-media img");
   const caseStudyTitle = caseStudyModal?.querySelector("#caseStudyTitle");
   const caseStudyEyebrow = caseStudyModal?.querySelector(".case-study-eyebrow");
   const caseStudyDescription = caseStudyModal?.querySelector('[data-case-study-description]');
   const caseStudyDetails = caseStudyModal?.querySelector('[data-case-study-details]');
-  const caseStudyDashboardLinks = document.querySelectorAll(".data-dashboard-link, .case-study-dashboard-link");
-  const caseStudyNotebookLink = document.querySelector(".case-study-notebook-link");
-  const dataProject = getDataProject();
+  const project = projectData[projectIndex];
+  const modal = project?.modal;
 
-  if (!caseStudyModal) return;
+  if (!caseStudyModal || !project || !modal) return;
 
-  activeCaseStudyTrigger = caseStudyOpenButton;
-  configureProjectLink(caseStudyNotebookLink, dataProject?.notebookUrl || "");
-  caseStudyDashboardLinks.forEach((link) => configureProjectLink(link, dataProject?.dashboardUrl || ""));
+  activeCaseStudyTrigger = triggerButton;
 
-  if (caseStudyImage && dataProject) {
-    caseStudyImage.src = dataProject.caseStudyImage || dataProject.image;
-    caseStudyImage.alt = getLocalizedValue(dataProject.imageAlt);
+  if (caseStudyImage) {
+    caseStudyImage.src = modal.image || project.image;
+    caseStudyImage.alt = getLocalizedValue(project.imageAlt);
   }
 
-  if (caseStudyTitle && dataProject) {
-    caseStudyTitle.textContent = getLocalizedValue(dataProject.title);
+  if (caseStudyTitle) {
+    caseStudyTitle.textContent = getLocalizedValue(modal.title) || getLocalizedValue(project.title);
   }
 
-  if (caseStudyEyebrow && dataProject?.caseStudy?.eyebrow) {
-    caseStudyEyebrow.textContent = getLocalizedValue(dataProject.caseStudy.eyebrow);
+  if (caseStudyEyebrow && modal.eyebrow) {
+    caseStudyEyebrow.textContent = getLocalizedValue(modal.eyebrow);
   }
 
-  if (caseStudyDescription && dataProject?.caseStudy?.description) {
-    caseStudyDescription.textContent = getLocalizedValue(dataProject.caseStudy.description);
+  if (caseStudyDescription && modal.description) {
+    caseStudyDescription.textContent = getLocalizedValue(modal.description);
   }
 
-  if (caseStudyDetails && dataProject?.caseStudy?.details) {
-    caseStudyDetails.textContent = getLocalizedValue(dataProject.caseStudy.details);
+  if (caseStudyDetails && modal.details) {
+    caseStudyDetails.textContent = getLocalizedValue(modal.details);
+  }
+
+  if (caseStudyActions) {
+    const actions = Array.isArray(modal.actions) ? modal.actions : [];
+    caseStudyActions.innerHTML = actions.map((action) => {
+      const url = typeof action.url === "string" && action.url.trim() ? action.url.trim() : "#";
+      const hasUrl = /^https?:\/\//i.test(url);
+      const variantClass = action.variant === "secondary" ? "btn btn-secondary" : "btn btn-primary";
+      const rel = hasUrl ? ' rel="noopener"' : "";
+      const ariaDisabled = hasUrl ? "" : ' aria-disabled="true"';
+
+      return `<a class="${variantClass}" href="${escapeHtml(url)}" target="_blank"${rel}${ariaDisabled}>${escapeHtml(getLocalizedValue(action.label))}</a>`;
+    }).join("");
   }
 
   caseStudyModal.setAttribute("aria-hidden", "false");
@@ -722,14 +860,15 @@ const closeCaseStudyModal = () => {
 
 const initializeProjectCards = () => {
   const activeProjectFilter = document.querySelector(".filter-btn.active")?.dataset.filter || "all";
-  const dataProject = getDataProject();
-  const caseStudyOpenButton = document.querySelector("[data-case-study-open]");
-  const caseStudyNotebookLink = document.querySelector(".case-study-notebook-link");
-  const caseStudyDashboardLinks = document.querySelectorAll(".data-dashboard-link, .case-study-dashboard-link");
+  const caseStudyOpenButtons = document.querySelectorAll("[data-case-study-open]");
 
-  caseStudyDashboardLinks.forEach((link) => configureProjectLink(link, dataProject?.dashboardUrl || ""));
-  configureProjectLink(caseStudyNotebookLink, dataProject?.notebookUrl || "");
-  caseStudyOpenButton?.addEventListener("click", openCaseStudyModal);
+  caseStudyOpenButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const projectIndex = Number.parseInt(button.getAttribute("data-project-index") || "", 10);
+      if (!Number.isFinite(projectIndex)) return;
+      openCaseStudyModal(projectIndex, button);
+    });
+  });
 
   applyProjectFilter(activeProjectFilter);
 };
@@ -1520,16 +1659,7 @@ if (!prefersReducedMotion) {
 
 // i18n initialization
 const currentLang = getStoredLang() || "id";
-
-if (currentLang !== "id") {
-  applyLang(currentLang);
-} else {
-  if (langToggle) {
-    langIconId.style.display = "block";
-    langIconEn.style.display = "none";
-    langText.textContent = "ID";
-  }
-}
+applyLang(currentLang);
 
 if (langToggle) {
   langToggle.addEventListener("click", () => {
@@ -1539,4 +1669,10 @@ if (langToggle) {
     storeLang(nextLang);
   });
 }
+
+
+
+
+
+
 

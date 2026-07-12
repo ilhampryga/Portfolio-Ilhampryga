@@ -16,8 +16,22 @@ window.PORTFOLIO_PROJECTS = [
       en: "An IoT-based drip irrigation system for chili plants using ETc Hargreaves-Samani calculation and Fuzzy Logic."
     },
     tags: ["ESP8266", "Fuzzy Logic", "Flutter"],
-    demoUrl: "#",
-    githubUrl: "https://github.com/ilhampryga/SmartDrip-Page.git",
+    links: [
+      {
+        label: {
+          id: "Demo",
+          en: "Demo"
+        },
+        url: "https://ilhampryga.github.io/SmartDrip-Page/"
+      },
+      {
+        label: {
+          id: "GitHub",
+          en: "GitHub"
+        },
+        url: "https://github.com/ilhampryga/smart_drip_ESP.git"
+      }
+    ],
     delayClass: ""
   },
   {
@@ -37,8 +51,22 @@ window.PORTFOLIO_PROJECTS = [
       en: "Automated workflow for tracking income and expenses via Telegram, then saving the data to Google Sheets."
     },
     tags: ["React", "JavaScript", "API"],
-    demoUrl: "#",
-    githubUrl: "#",
+    links: [
+      {
+        label: {
+          id: "Demo",
+          en: "Demo"
+        },
+        url: "#"
+      },
+      {
+        label: {
+          id: "GitHub",
+          en: "GitHub"
+        },
+        url: "#"
+      }
+    ],
     delayClass: "delay-1"
   },
   {
@@ -58,8 +86,22 @@ window.PORTFOLIO_PROJECTS = [
       en: "A lightweight and responsive blog website with clean content structure, SEO-friendly, and an easy-to-manage comment system."
     },
     tags: ["Laravel", "CSS", "MySQL"],
-    demoUrl: "#",
-    githubUrl: "#",
+    links: [
+      {
+        label: {
+          id: "Demo",
+          en: "Demo"
+        },
+        url: "#"
+      },
+      {
+        label: {
+          id: "GitHub",
+          en: "GitHub"
+        },
+        url: "#"
+      }
+    ],
     delayClass: "delay-2"
   },
   {
@@ -79,8 +121,22 @@ window.PORTFOLIO_PROJECTS = [
       en: "A responsive promotional page for local businesses with a modern look, clear CTA, and easily scannable information structure."
     },
     tags: ["RFID", "SIM800L", "Mobile"],
-    demoUrl: "#",
-    githubUrl: "#",
+    links: [
+      {
+        label: {
+          id: "Demo",
+          en: "Demo"
+        },
+        url: "#"
+      },
+      {
+        label: {
+          id: "GitHub",
+          en: "GitHub"
+        },
+        url: "#"
+      }
+    ],
     delayClass: ""
   },
   {
@@ -100,15 +156,28 @@ window.PORTFOLIO_PROJECTS = [
       en: "Automated notification delivery from form data and external APIs to speed up follow-up and reporting processes."
     },
     tags: ["n8n", "API", "Webhook"],
-    demoUrl: "#",
-    githubUrl: "#",
+    links: [
+      {
+        label: {
+          id: "Demo",
+          en: "Demo"
+        },
+        url: "#"
+      },
+      {
+        label: {
+          id: "GitHub",
+          en: "GitHub"
+        },
+        url: "#"
+      }
+    ],
     delayClass: "delay-1"
   },
   {
-    kind: "data-project",
+    kind: "project",
     category: "data",
     image: "assets/img/data-analytics-project-placeholder.svg",
-    caseStudyImage: "assets/img/data-analytics-project-placeholder.svg",
     imageAlt: {
       id: "Preview Data Analytics Dashboard",
       en: "Data Analytics Dashboard preview"
@@ -122,14 +191,22 @@ window.PORTFOLIO_PROJECTS = [
       en: "An end-to-end data analytics project that transforms raw data into insights and interactive visualizations through a Tableau dashboard."
     },
     tags: ["Tableau", "Python", "Google Colab"],
-    dashboardUrl: "",
-    notebookUrl: "",
+    links: [
+      {
+        label: {
+          id: "Dashboard",
+          en: "Dashboard"
+        },
+        url: ""
+      }
+    ],
     delayClass: "delay-2",
-    caseStudy: {
+    modal: {
       eyebrow: {
         id: "Project Data Analyst",
         en: "Data Analyst Project"
       },
+      image: "assets/img/data-analytics-project-placeholder.svg",
       description: {
         id: "Studi kasus ini mendokumentasikan proses analisis mulai dari memahami kebutuhan, membersihkan data, melakukan eksplorasi, hingga menyusun insight pada dashboard Tableau.",
         en: "This case study documents the analysis process, from understanding the requirements and cleaning the data to exploration and presenting insights in a Tableau dashboard."
@@ -137,6 +214,28 @@ window.PORTFOLIO_PROJECTS = [
       details: {
         id: "Notebook digunakan untuk proses data preparation dan exploratory data analysis, sedangkan dashboard menyajikan hasil akhir agar mudah dipahami dan digunakan dalam pengambilan keputusan.",
         en: "The notebook is used for data preparation and exploratory data analysis, while the dashboard presents the final results for clear communication and decision-making."
+      },
+      actions: [
+        {
+          label: {
+            id: "Dashboard",
+            en: "Dashboard"
+          },
+          url: "",
+          variant: "primary"
+        },
+        {
+          label: {
+            id: "Notebook",
+            en: "Notebook"
+          },
+          url: "",
+          variant: "secondary"
+        }
+      ],
+      buttonLabel: {
+        id: "Case Study",
+        en: "Case Study"
       }
     }
   },
