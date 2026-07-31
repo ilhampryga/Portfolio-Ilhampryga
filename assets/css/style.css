@@ -960,7 +960,7 @@ html[data-theme="dark"] .hero-rotating-text {
 }
 
 .about-highlight-item:not(:first-child) {
-  padding-left: 14px;
+  padding-left: 8px;
 }
 
 .about-highlight-item:not(:last-child) {

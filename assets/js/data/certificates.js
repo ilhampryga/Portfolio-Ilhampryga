@@ -1,6 +1,6 @@
 window.PORTFOLIO_CERTIFICATES = [
   {
-    category: "data",
+    category: "training",
     image: "assets/img/damc.png",
     imageAlt: {
       id: "Sertifikat Intro to Data Analytics",
@@ -23,7 +23,7 @@ window.PORTFOLIO_CERTIFICATES = [
     delayClass: ""
   },
   {
-    category: "database",
+    category: "certification",
     featured: "primary",
     image: "assets/img/databases.png",
     imageAlt: {
@@ -163,7 +163,7 @@ window.PORTFOLIO_CERTIFICATES = [
     delayClass: "delay-5"
   },
   {
-    category: "training",
+    category: "certification",
     image: "assets/img/jna_bnsp.png",
     imageAlt: {
       id: "Sertifikat Junior Network Administrator BNSP",
@@ -186,9 +186,9 @@ window.PORTFOLIO_CERTIFICATES = [
     delayClass: "delay-6"
   },
   {
-    category: "data",
+    category: "training",
     featured: "secondary",
-    image: "assets/img/certificate-placeholder.svg",
+    image: "assets/img/sertif_ukara.png",
     imageAlt: {
       id: "Placeholder sertifikat AI for Data Processing",
       en: "AI for Data Processing certificate placeholder"
@@ -205,6 +205,29 @@ window.PORTFOLIO_CERTIFICATES = [
     source: {
       id: "UKARA",
       en: "UKARA"
+    },
+    year: "2026",
+    delayClass: "delay-7"
+  },
+    {
+    category: "training",
+    image: "assets/img/dqlab-da.png",
+    imageAlt: {
+      id: "Intro to Data Analytics",
+      en: "Intro to Data Analytics"
+    },
+    type: {
+      id: "Data Analyst",
+      en: "Data Analyst"
+    },
+    title: {
+      id: "Mini Bootcamp : Introduction to Data Analytics",
+      en: "Mini Bootcamp : Introduction to Data Analytics"
+    },
+    logo: "assets/img/dqlab.jpg",
+    source: {
+      id: "DQ Lab",
+      en: "DQ Lab"
     },
     year: "2026",
     delayClass: "delay-7"

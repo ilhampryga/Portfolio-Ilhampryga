@@ -15,7 +15,6 @@ window.PORTFOLIO_PROJECTS = [
       id: "Sistem irigasi tetes berbasis IoT untuk tanaman cabai menggunakan perhitungan ETc Hargreaves-Samani dan Fuzzy Logic.",
       en: "An IoT-based drip irrigation system for chili plants using ETc Hargreaves-Samani calculation and Fuzzy Logic."
     },
-    tags: ["ESP8266", "Fuzzy Logic", "Flutter"],
     links: [
       {
         label: {
@@ -33,42 +32,7 @@ window.PORTFOLIO_PROJECTS = [
       }
     ],
     delayClass: ""
-  },
-  {
-    kind: "project",
-    category: "automation",
-    image: "assets/img/project2.png",
-    imageAlt: {
-      id: "Kuningan Trip",
-      en: "Kuningan Trip"
-    },
-    title: {
-      id: "Kuningan Trip",
-      en: "Kuningan Trip"
-    },
-    description: {
-      id: "Workflow otomatis untuk mencatat pemasukan dan pengeluaran melalui Telegram, kemudian menyimpan data ke Google Sheets.",
-      en: "Automated workflow for tracking income and expenses via Telegram, then saving the data to Google Sheets."
-    },
-    tags: ["React", "JavaScript", "API"],
-    links: [
-      {
-        label: {
-          id: "Demo",
-          en: "Demo"
-        },
-        url: "#"
-      },
-      {
-        label: {
-          id: "GitHub",
-          en: "GitHub"
-        },
-        url: "#"
-      }
-    ],
-    delayClass: "delay-1"
-  },
+  },  
   {
     kind: "project",
     category: "web",
@@ -85,21 +49,20 @@ window.PORTFOLIO_PROJECTS = [
       id: "Website blog ringan dan responsif dengan struktur konten rapi, SEO-friendly, serta sistem komentar yang mudah dikelola.",
       en: "A lightweight and responsive blog website with clean content structure, SEO-friendly, and an easy-to-manage comment system."
     },
-    tags: ["Laravel", "CSS", "MySQL"],
     links: [
       {
         label: {
           id: "Demo",
           en: "Demo"
         },
-        url: "#"
+        url: "https://vanillablue-photo-studio.onrender.com/"
       },
       {
         label: {
           id: "GitHub",
           en: "GitHub"
         },
-        url: "#"
+        url: "https://github.com/Handynnda/Vanillablue.git"
       }
     ],
     delayClass: "delay-2"
@@ -107,7 +70,7 @@ window.PORTFOLIO_PROJECTS = [
   {
     kind: "project",
     category: "web",
-    image: "assets/img/project4.png",
+    image: "assets/img/project2.png",
     imageAlt: {
       id: "Waste 2 Gold: SIMBARA",
       en: "Waste 2 Gold: SIMBARA"
@@ -117,80 +80,43 @@ window.PORTFOLIO_PROJECTS = [
       en: "Waste 2 Gold: SIMBARA"
     },
     description: {
-      id: "Halaman promosi responsif untuk bisnis lokal dengan tampilan modern, CTA yang jelas, dan struktur informasi yang mudah dipindai.",
-      en: "A responsive promotional page for local businesses with a modern look, clear CTA, and easily scannable information structure."
+      id: "Integrasi teknologi IoT dan RFID yang dirancang untuk mengelola absensi pekerja dan pengangkutan sampah.",
+      en: "The integration of IoT and RFID technology designed to manage worker attendance and waste collection."
     },
-    tags: ["RFID", "SIM800L", "Mobile"],
     links: [
       {
         label: {
-          id: "Demo",
-          en: "Demo"
+          id: "Artikel",
+          en: "Article"
         },
-        url: "#"
+        url: "https://id.linkedin.com/pulse/simbara-sistem-manajemen-absensi-pengangkutan-sampah-berbasis-ansyah-coiyc?utm_source=share&utm_medium=guest_desktop&utm_campaign=copy"
       },
       {
         label: {
           id: "GitHub",
           en: "GitHub"
         },
-        url: "#"
+        url: "https://github.com/riverrmoon/main_project_msib_7.git"
       }
     ],
     delayClass: ""
   },
   {
     kind: "project",
-    category: "automation",
-    image: "assets/img/project5.png",
-    imageAlt: {
-      id: "Workflow Notifikasi Otomatis",
-      en: "Automated Notification Workflow"
-    },
-    title: {
-      id: "Workflow Notifikasi Otomatis",
-      en: "Automated Notification Workflow"
-    },
-    description: {
-      id: "Automasi pengiriman notifikasi dari data formulir dan API eksternal untuk mempercepat proses follow-up dan pelaporan.",
-      en: "Automated notification delivery from form data and external APIs to speed up follow-up and reporting processes."
-    },
-    tags: ["n8n", "API", "Webhook"],
-    links: [
-      {
-        label: {
-          id: "Demo",
-          en: "Demo"
-        },
-        url: "#"
-      },
-      {
-        label: {
-          id: "GitHub",
-          en: "GitHub"
-        },
-        url: "#"
-      }
-    ],
-    delayClass: "delay-1"
-  },
-  {
-    kind: "project",
     category: "data",
     image: "assets/img/data-analytics-project-placeholder.svg",
     imageAlt: {
-      id: "Preview Data Analytics Dashboard",
-      en: "Data Analytics Dashboard preview"
+      id: "Data Gaji Pekerjaan AI di Indonesia",
+      en: "Indonesian AI & Data Jobs Salary"
     },
     title: {
-      id: "Data Analytics Dashboard",
-      en: "Data Analytics Dashboard"
+      id: "Data Gaji Pekerjaan AI di Indonesia",
+      en: "Indonesian AI & Data Jobs Salary"
     },
     description: {
       id: "Project analisis data end-to-end yang mengubah data mentah menjadi insight dan visualisasi interaktif melalui dashboard Tableau.",
       en: "An end-to-end data analytics project that transforms raw data into insights and interactive visualizations through a Tableau dashboard."
     },
-    tags: ["Tableau", "Python", "Google Colab"],
     links: [
       {
         label: {

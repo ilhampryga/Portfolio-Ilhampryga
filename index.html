@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
@@ -32,7 +32,7 @@
         <div class="nav-menu" id="navMenu">
           <a href="#about" data-i18n="nav.about">Tentang</a>
           <a href="#experience" data-i18n="nav.experience">Pengalaman</a>
-          <a href="#certifications" data-i18n="nav.certifications">Sertifikasi</a>
+          <a href="#certifications" data-i18n="nav.certifications">Sertifikat</a>
           <a href="#projects" data-i18n="nav.projects">Project</a>
           <a href="#contact" data-i18n="nav.contact">Kontak</a>
         </div>
@@ -228,9 +228,8 @@
 
         <div class="certificate-filter reveal" role="group" aria-label="Filter pelatihan dan sertifikasi" data-i18n-aria-label="aria.cert_filter">
           <button class="certificate-filter-btn active" type="button" data-certificate-filter="all" data-i18n="certifications.filter_all">Semua</button>
-          <button class="certificate-filter-btn" type="button" data-certificate-filter="data" data-i18n="certifications.filter_data">Data Analytics</button>
-          <button class="certificate-filter-btn" type="button" data-certificate-filter="database" data-i18n="certifications.filter_database">Database</button>
           <button class="certificate-filter-btn" type="button" data-certificate-filter="training" data-i18n="certifications.filter_training">Pelatihan</button>
+          <button class="certificate-filter-btn" type="button" data-certificate-filter="certification" data-i18n="certifications.filter_certification">Sertifikasi</button>
         </div>
 
         <div class="certificates-grid featured-mode" id="certificatesGrid"></div>
@@ -289,13 +288,13 @@
           >Beberapa project yang relevan dengan fokus saya.</h2>
         </div>
 
-        <div class="project-filter reveal">
+        <!-- <div class="project-filter reveal">
           <button class="filter-btn active" data-filter="all" data-i18n="projects.filter_all">Semua</button>
           <button class="filter-btn" data-filter="web" data-i18n="projects.filter_web">Web</button>
           <button class="filter-btn" data-filter="iot">IoT</button>
           <button class="filter-btn" data-filter="automation" data-i18n="projects.filter_automation">Automation</button>
           <button class="filter-btn" data-filter="data" data-i18n="projects.filter_data">Data Analyst</button>
-        </div>
+        </div> -->
 
         <div class="projects-grid" id="projectsGrid"></div>
       </div>
@@ -334,7 +333,7 @@
     <section class="section tech-stack-section" id="tech-stack">
       <div class="container">
         <div class="section-heading centered reveal">
-          <p class="eyebrow">Tech Stack</p>
+          <p class="eyebrow" data-i18n="skills.eyebrow">Keahlian</p>
           <h2
             class="text-type tech-stack-title"
             data-text-type
@@ -345,7 +344,7 @@
             data-initial-delay="220"
             data-start-on-visible="true"
             data-cursor-character="|"
-          ><span class="text-type__content">Tech Stack</span><span class="text-type__cursor" aria-hidden="true">|</span></h2>
+          ><span class="text-type__content" data-i18n="skills.heading">Keahlian</span><span class="text-type__cursor" aria-hidden="true">|</span></h2>
         </div>
 
         <div class="logo-loop-panel reveal delay-1">
@@ -374,6 +373,8 @@
                 <li class="logoloop__item" role="listitem"><span class="logoloop__node stack-card"><i class="devicon-tailwindcss-plain colored"></i><span>Tailwind CSS</span></span></li>
                 <li class="logoloop__item" role="listitem"><span class="logoloop__node stack-card"><i class="devicon-flutter-plain colored"></i><span>Flutter</span></span></li>
                 <li class="logoloop__item" role="listitem"><span class="logoloop__node stack-card"><i class="devicon-dart-plain colored"></i><span>Dart</span></span></li>
+                <li class="logoloop__item" role="listitem"><span class="logoloop__node stack-card"><img src="https://api.iconify.design/logos:tableau-icon.svg" alt="Tableau" style="width: var(--logoloop-logoHeight); height: var(--logoloop-logoHeight);" /><span>Tableau</span></span></li>
+                <li class="logoloop__item" role="listitem"><span class="logoloop__node stack-card"><img src="https://api.iconify.design/logos:microsoft-power-bi.svg" alt="Power BI" style="width: var(--logoloop-logoHeight); height: var(--logoloop-logoHeight);" /><span>Power BI</span></span></li>
               </ul>
             </div>
           </div>
