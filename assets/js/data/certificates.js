@@ -1,7 +1,7 @@
 window.PORTFOLIO_CERTIFICATES = [
   {
     category: "training",
-    image: "assets/img/damc.png",
+    image: "assets/img/certificates/damc.png",
     imageAlt: {
       id: "Sertifikat Intro to Data Analytics",
       en: "Intro to Data Analytics Certificate"
@@ -14,7 +14,7 @@ window.PORTFOLIO_CERTIFICATES = [
       id: "Intro to Data Analytics",
       en: "Intro to Data Analytics"
     },
-    logo: "assets/img/revou.jpeg",
+    logo: "assets/img/institutions/revou.jpeg",
     source: {
       id: "RevoU",
       en: "RevoU"
@@ -25,7 +25,7 @@ window.PORTFOLIO_CERTIFICATES = [
   {
     category: "certification",
     featured: "primary",
-    image: "assets/img/databases.png",
+    image: "assets/img/certificates/databases.png",
     imageAlt: {
       id: "Sertifikat Information Technology Specialist in Databases",
       en: "Information Technology Specialist in Databases certificate"
@@ -38,7 +38,7 @@ window.PORTFOLIO_CERTIFICATES = [
       id: "Information Technology Specialist in Databases",
       en: "Information Technology Specialist in Databases"
     },
-    logo: "assets/img/certiport.png",
+    logo: "assets/img/institutions/certiport.png",
     source: {
       id: "Certiport",
       en: "Certiport"
@@ -49,7 +49,7 @@ window.PORTFOLIO_CERTIFICATES = [
   {
     category: "training",
     featured: "tertiary",
-    image: "assets/img/data_science.png",
+    image: "assets/img/certificates/data_science.png",
     imageAlt: {
       id: "Sertifikat Associate Data Scientist + Python - Nasional",
       en: "Associate Data Scientist + Python - Nasional certificate"
@@ -62,7 +62,7 @@ window.PORTFOLIO_CERTIFICATES = [
       id: "Associate Data Scientist + Python - Nasional",
       en: "Associate Data Scientist + Python - Nasional"
     },
-    logo: "assets/img/digitalent.png",
+    logo: "assets/img/institutions/digitalent.png",
     source: {
       id: "Digitalent KOMDIGI",
       en: "Digitalent KOMDIGI"
@@ -72,7 +72,7 @@ window.PORTFOLIO_CERTIFICATES = [
   },
   {
     category: "training",
-    image: "assets/img/msib.png",
+    image: "assets/img/certificates/msib.png",
     imageAlt: {
       id: "Sertifikat Studi Independen Bersertifikat Angkatan 7",
       en: "Studi Independen Bersertifikat Angkatan 7 certificate"
@@ -85,7 +85,7 @@ window.PORTFOLIO_CERTIFICATES = [
       id: "Studi Independen Bersertifikat Angkatan 7",
       en: "Studi Independen Bersertifikat Angkatan 7"
     },
-    logo: "assets/img/mbkm.jpeg",
+    logo: "assets/img/institutions/mbkm.jpeg",
     source: {
       id: "Kampus Merdeka",
       en: "Kampus Merdeka"
@@ -95,7 +95,7 @@ window.PORTFOLIO_CERTIFICATES = [
   },
   {
     category: "training",
-    image: "assets/img/indobot.png",
+    image: "assets/img/certificates/indobot.png",
     imageAlt: {
       id: "Sertifikat IoT Engineer Camp Real Project",
       en: "IoT Engineer Camp Real Project certificate"
@@ -108,7 +108,7 @@ window.PORTFOLIO_CERTIFICATES = [
       id: "IoT Engineer Camp Real Project",
       en: "IoT Engineer Camp Real Project"
     },
-    logo: "assets/img/indobot.jpeg",
+    logo: "assets/img/institutions/indobot.jpeg",
     source: {
       id: "Indobot Academy",
       en: "Indobot Academy"
@@ -118,7 +118,7 @@ window.PORTFOLIO_CERTIFICATES = [
   },
   {
     category: "training",
-    image: "assets/img/jna_vsga.png",
+    image: "assets/img/certificates/jna_vsga.png",
     imageAlt: {
       id: "Sertifikat Junior Network Administrator",
       en: "Junior Network Administrator certificate"
@@ -131,7 +131,7 @@ window.PORTFOLIO_CERTIFICATES = [
       id: "Junior Network Administrator",
       en: "Junior Network Administrator"
     },
-    logo: "assets/img/digitalent.png",
+    logo: "assets/img/institutions/digitalent.png",
     source: {
       id: "Digitalent KOMDIGI",
       en: "Digitalent KOMDIGI"
@@ -141,7 +141,7 @@ window.PORTFOLIO_CERTIFICATES = [
   },
   {
     category: "training",
-    image: "assets/img/jwd_vsga.png",
+    image: "assets/img/certificates/jwd_vsga.png",
     imageAlt: {
       id: "Sertifikat Junior Web Developer",
       en: "Junior Web Developer certificate"
@@ -154,7 +154,7 @@ window.PORTFOLIO_CERTIFICATES = [
       id: "Junior Web Developer",
       en: "Junior Web Developer"
     },
-    logo: "assets/img/digitalent.png",
+    logo: "assets/img/institutions/digitalent.png",
     source: {
       id: "Digitalent KOMDIGI",
       en: "Digitalent KOMDIGI"
@@ -164,7 +164,7 @@ window.PORTFOLIO_CERTIFICATES = [
   },
   {
     category: "certification",
-    image: "assets/img/jna_bnsp.png",
+    image: "assets/img/certificates/jna_bnsp.png",
     imageAlt: {
       id: "Sertifikat Junior Network Administrator BNSP",
       en: "Junior Network Administrator BNSP certificate"
@@ -177,7 +177,7 @@ window.PORTFOLIO_CERTIFICATES = [
       id: "Junior Network Administrator",
       en: "Junior Network Administrator"
     },
-    logo: "assets/img/lsp.png",
+    logo: "assets/img/institutions/lsp.png",
     source: {
       id: "LSP Informatika BNSP",
       en: "LSP Informatika BNSP"
@@ -188,7 +188,7 @@ window.PORTFOLIO_CERTIFICATES = [
   {
     category: "training",
     featured: "secondary",
-    image: "assets/img/sertif_ukara.png",
+    image: "assets/img/certificates/sertif_ukara.png",
     imageAlt: {
       id: "Placeholder sertifikat AI for Data Processing",
       en: "AI for Data Processing certificate placeholder"
@@ -201,7 +201,7 @@ window.PORTFOLIO_CERTIFICATES = [
       id: "AI for Data Processing",
       en: "AI for Data Processing"
     },
-    logo: "assets/img/ukara.png",
+    logo: "assets/img/institutions/ukara.png",
     source: {
       id: "UKARA",
       en: "UKARA"
@@ -211,7 +211,7 @@ window.PORTFOLIO_CERTIFICATES = [
   },
     {
     category: "training",
-    image: "assets/img/dqlab-da.png",
+    image: "assets/img/certificates/dqlab-da.png",
     imageAlt: {
       id: "Intro to Data Analytics",
       en: "Intro to Data Analytics"
@@ -224,7 +224,7 @@ window.PORTFOLIO_CERTIFICATES = [
       id: "Mini Bootcamp : Introduction to Data Analytics",
       en: "Mini Bootcamp : Introduction to Data Analytics"
     },
-    logo: "assets/img/dqlab.jpg",
+    logo: "assets/img/institutions/dqlab.jpg",
     source: {
       id: "DQ Lab",
       en: "DQ Lab"

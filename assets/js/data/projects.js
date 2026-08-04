@@ -2,7 +2,7 @@ window.PORTFOLIO_PROJECTS = [
   {
     kind: "project",
     category: "iot",
-    image: "assets/img/project1.png",
+    image: "assets/img/projects/project1.png",
     imageAlt: {
       id: "Smart Drip Irrigation System",
       en: "Smart Drip Irrigation System"
@@ -16,13 +16,13 @@ window.PORTFOLIO_PROJECTS = [
       en: "An IoT-based drip irrigation system for chili plants using ETc Hargreaves-Samani calculation and Fuzzy Logic."
     },
     links: [
-      {
-        label: {
-          id: "Demo",
-          en: "Demo"
-        },
-        url: "https://ilhampryga.github.io/SmartDrip-Page/"
-      },
+      // {
+      //   label: {
+      //     id: "Demo",
+      //     en: "Demo"
+      //   },
+      //   url: "https://ilhampryga.github.io/SmartDrip-Page/"
+      // },
       {
         label: {
           id: "GitHub",
@@ -31,12 +31,54 @@ window.PORTFOLIO_PROJECTS = [
         url: "https://github.com/ilhampryga/smart_drip_ESP.git"
       }
     ],
-    delayClass: ""
+    delayClass: "",
+    modal: {
+      eyebrow: {
+        id: "Project IoT",
+        en: "IoT Project"
+      },
+      images: [
+        "assets/img/projects/smartDrip1.png",
+        "assets/img/projects/smartDrip2.png",
+        "assets/img/projects/smartDrip3.png",
+        "assets/img/projects/smartDrip4.png"
+      ],
+      description: {
+        id: "Sistem irigasi tetes otomatis berbasis IoT yang dirancang untuk tanaman cabai. Menggunakan metode Hargreaves-Samani untuk menghitung evapotranspirasi tanaman (ETc) dan Fuzzy Logic sebagai pengendali keputusan irigasi.",
+        en: "An IoT-based automatic drip irrigation system designed for chili plants. It uses the Hargreaves-Samani method to calculate crop evapotranspiration (ETc) and Fuzzy Logic as the irrigation decision controller."
+      },
+      details: {
+        id: "Sistem ini mengintegrasikan sensor suhu dan kelembaban tanah yang terhubung ke mikrokontroler ESP8266 untuk monitoring irigasi secara real-time. Sistem menerapkan koreksi data suhu harian menggunakan API Open-Meteo sebagai dasar perhitungan ETc.",
+        en: "This system integrates temperature and soil moisture sensors connected to an ESP8266 microcontroller for real-time irrigation monitoring. It applies daily temperature correction using the Open-Meteo API as the basis for ETc calculation."
+      },
+      actions: [
+        // {
+        //   label: {
+        //     id: "Demo",
+        //     en: "Demo"
+        //   },
+        //   url: "https://ilhampryga.github.io/SmartDrip-Page/",
+        //   variant: "primary"
+        // },
+        {
+          label: {
+            id: "GitHub",
+            en: "GitHub"
+          },
+          url: "https://github.com/ilhampryga/smart_drip_ESP.git",
+          variant: "secondary"
+        }
+      ],
+      buttonLabel: {
+        id: "Detail",
+        en: "Details"
+      }
+    }
   },  
   {
     kind: "project",
     category: "web",
-    image: "assets/img/project3.png",
+    image: "assets/img/projects/project3.png",
     imageAlt: {
       id: "Vanillablue Photo Studio",
       en: "Vanillablue Photo Studio"
@@ -46,8 +88,8 @@ window.PORTFOLIO_PROJECTS = [
       en: "Vanillablue Photo Studio"
     },
     description: {
-      id: "Website blog ringan dan responsif dengan struktur konten rapi, SEO-friendly, serta sistem komentar yang mudah dikelola.",
-      en: "A lightweight and responsive blog website with clean content structure, SEO-friendly, and an easy-to-manage comment system."
+      id: "Website booking studio foto yang memungkinkan pengguna melihat jadwal tersedia dan jadwal yang telah terisi secara real-time, sehingga proses reservasi menjadi lebih mudah.",
+      en: "A website booking photo studio that allows users to view available schedules and schedules that have already been filled in real-time, making the reservation process easier."
     },
     links: [
       {
@@ -69,8 +111,8 @@ window.PORTFOLIO_PROJECTS = [
   },
   {
     kind: "project",
-    category: "web",
-    image: "assets/img/project2.png",
+    category: "article",
+    image: "assets/img/projects/project2.png",
     imageAlt: {
       id: "Waste 2 Gold: SIMBARA",
       en: "Waste 2 Gold: SIMBARA"
@@ -104,7 +146,7 @@ window.PORTFOLIO_PROJECTS = [
   // {
   //   kind: "project",
   //   category: "data",
-  //   image: "assets/img/data-analytics-project-placeholder.svg",
+  //   image: "assets/img/projects/data-analytics-project-placeholder.svg",
   //   imageAlt: {
   //     id: "Data Gaji Pekerjaan AI di Indonesia",
   //     en: "Indonesian AI & Data Jobs Salary"
@@ -132,7 +174,7 @@ window.PORTFOLIO_PROJECTS = [
   //       id: "Project Data Analyst",
   //       en: "Data Analyst Project"
   //     },
-  //     image: "assets/img/data-analytics-project-placeholder.svg",
+  //     image: "assets/img/projects/data-analytics-project-placeholder.svg",
   //     description: {
   //       id: "Studi kasus ini mendokumentasikan proses analisis mulai dari memahami kebutuhan, membersihkan data, melakukan eksplorasi, hingga menyusun insight pada dashboard Tableau.",
   //       en: "This case study documents the analysis process, from understanding the requirements and cleaning the data to exploration and presenting insights in a Tableau dashboard."

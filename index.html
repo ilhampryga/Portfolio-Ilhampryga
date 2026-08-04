@@ -17,7 +17,7 @@
 
   <title>Ilham Adi Prayoga</title>
 
-  <link rel="icon" type="image/svg+xml" href="assets/img/logo.svg?v=3" />
+  <link rel="icon" type="image/svg+xml" href="assets/img/brand/favicon.svg?v=3" />
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,7 +31,7 @@
     <nav class="navbar container" aria-label="Navigasi utama" data-i18n-aria-label="aria.nav">
       <a href="#home" class="brand" aria-label="Kembali ke beranda" data-i18n-aria-label="aria.home">
         <span class="brand-mark">
-          <img src="assets/img/logo.svg?v=3" alt="Foto profil Ilham Prayoga" loading="lazy" />
+          <img src="assets/img/brand/logo.svg?v=4" alt="Foto profil Ilham Prayoga" loading="lazy" />
         </span>
         <span class="brand-text">Ilham Prayoga</span>
       </a>
@@ -147,11 +147,11 @@
                   <p data-i18n="about.card_role">Junior Data Analyst &amp; SQA</p>
                 </div>
 
-                <img class="profile-avatar-main" src="assets/img/profile.png" alt="Foto profil Ilham Prayoga" loading="lazy" />
+                <img class="profile-avatar-main" src="assets/img/profile/profile.png" alt="Foto profil Ilham Prayoga" loading="lazy" />
 
                 <div class="profile-user-info">
                   <div class="profile-user-details">
-                    <img class="profile-mini-avatar" src="assets/img/profile.png" alt="" loading="lazy" />
+                    <img class="profile-mini-avatar" src="assets/img/profile/profile.png" alt="" loading="lazy" />
                     <div class="profile-user-text">
                       <div class="profile-handle">@ilhamprygap</div>
                       <div class="profile-status" data-i18n="about.profile_status">Available</div>
@@ -270,7 +270,7 @@
           <span aria-hidden="true">×</span>
         </button>
         <div class="certificate-modal-image-wrap">
-          <img id="certificateModalImage" src="assets/img/certificate-placeholder.svg" alt="" />
+          <img id="certificateModalImage" src="assets/img/certificates/certificate-placeholder.svg" alt="" />
         </div>
         <div class="certificate-modal-caption">
           <h3 id="certificateModalTitle">Pratinjau Sertifikat</h3>
@@ -316,7 +316,18 @@
         </button>
 
         <div class="case-study-media">
-          <img src="assets/img/data-analytics-project-placeholder.svg" alt="Preview Data Analytics Dashboard" />
+          <div class="case-study-carousel" id="caseStudyCarousel">
+            <div class="case-study-carousel-track" id="caseStudyCarouselTrack">
+              <!-- Images injected by JS -->
+            </div>
+            <button class="case-study-carousel-btn case-study-carousel-btn--prev" id="caseStudyCarouselPrev" aria-label="Gambar sebelumnya" type="button">
+              <span aria-hidden="true">‹</span>
+            </button>
+            <button class="case-study-carousel-btn case-study-carousel-btn--next" id="caseStudyCarouselNext" aria-label="Gambar berikutnya" type="button">
+              <span aria-hidden="true">›</span>
+            </button>
+            <div class="case-study-carousel-dots" id="caseStudyCarouselDots"></div>
+          </div>
         </div>
 
         <div class="case-study-content">
@@ -418,7 +429,7 @@
       <div class="container contact-grid">
         <div class="section-heading reveal">
           <p class="eyebrow" data-i18n="contact.eyebrow">Kontak</p>
-          <h2 data-i18n="contact.heading" data-i18n-html="true">Mari terhubung untuk <span class="contact-highlight contact-highlight--first">project, kolaborasi,</span> <span class="contact-highlight contact-highlight--second">atau peluang kerja.</span></h2>
+          <h2 data-i18n="contact.heading" data-i18n-html="true">Mari terhubung untuk<br><span class="contact-highlight contact-highlight--first">project, kolaborasi,</span><br><span class="contact-highlight contact-highlight--second">atau peluang kerja.</span></h2>
           <p data-i18n="contact.description">
             Silakan hubungi saya melalui email, WhatsApp, LinkedIn, atau GitHub.
           </p>

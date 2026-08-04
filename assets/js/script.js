@@ -30,6 +30,11 @@ const projectsGrid = document.getElementById("projectsGrid");
 const caseStudyModal = document.getElementById("caseStudyModal");
 const caseStudyCloseButtons = document.querySelectorAll("[data-case-study-close]");
 const caseStudyActions = document.getElementById("caseStudyActions");
+const caseStudyCarousel = document.getElementById("caseStudyCarousel");
+const caseStudyCarouselTrack = document.getElementById("caseStudyCarouselTrack");
+const caseStudyCarouselPrev = document.getElementById("caseStudyCarouselPrev");
+const caseStudyCarouselNext = document.getElementById("caseStudyCarouselNext");
+const caseStudyCarouselDots = document.getElementById("caseStudyCarouselDots");
 const cursorGlow = document.querySelector(".cursor-glow");
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const LOGO_LOOP_CONFIG = { SMOOTH_TAU: 0.25, MIN_COPIES: 2, COPY_HEADROOM: 2 };
@@ -164,7 +169,7 @@ const i18n = {
     "skills.eyebrow": "Keahlian",
     "skills.heading": "Keahlian",
     "contact.eyebrow": "Kontak",
-    "contact.heading": 'Mari terhubung untuk <span class="contact-highlight contact-highlight--first">project, kolaborasi,</span> <span class="contact-highlight contact-highlight--second">atau peluang kerja.</span>',
+    "contact.heading": 'Mari terhubung untuk<br><span class="contact-highlight contact-highlight--first">project, kolaborasi,</span><br><span class="contact-highlight contact-highlight--second">atau peluang kerja.</span>',
     "contact.description": "Silakan hubungi saya melalui email, WhatsApp, LinkedIn, atau GitHub.",
     "footer.back_to_top": "Kembali ke atas"
   },
@@ -237,7 +242,7 @@ const i18n = {
     "skills.eyebrow": "Skills",
     "skills.heading": "Skills",
     "contact.eyebrow": "Contact",
-    "contact.heading": 'Let\'s connect for <span class="contact-highlight contact-highlight--first">projects, collaborations,</span> <span class="contact-highlight contact-highlight--second">or job opportunities.</span>',
+    "contact.heading": 'Let\'s connect for<br><span class="contact-highlight contact-highlight--first">projects,</span><br><span class="contact-highlight contact-highlight--second">collaborations,</span><br><span class="contact-highlight contact-highlight--third">or job opportunities.</span>',
     "contact.description": "Feel free to contact me via email, WhatsApp, LinkedIn, or GitHub.",
     "footer.back_to_top": "Back to top"
   }
@@ -408,8 +413,8 @@ const renderProjectCard = (item, lang, index) => {
           ${tags}
         </div>
         <div class="project-links">
-          ${linksMarkup}
           ${caseStudyButtonMarkup}
+          ${linksMarkup}
         </div>
       </div>
     </article>
@@ -512,9 +517,24 @@ const applyLang = (lang) => {
 
   if (contactHeading && currentContactHighlights.length) {
     currentContactHighlights.forEach((highlight) => highlight.classList.remove("is-visible"));
-    requestAnimationFrame(() => {
-      currentContactHighlights.forEach((highlight) => highlight.classList.add("is-visible"));
-    });
+    const contactSection = document.querySelector("#contact");
+    if (contactSection) {
+      const rect = contactSection.getBoundingClientRect();
+      const isInViewport = rect.top < window.innerHeight && rect.bottom > 0;
+      if (isInViewport) {
+        requestAnimationFrame(() => {
+          document.querySelectorAll(".contact-highlight").forEach((highlight) => highlight.classList.add("is-visible"));
+        });
+      } else {
+        const tempObserver = new IntersectionObserver((entries, obs) => {
+          if (entries[0].isIntersecting) {
+            document.querySelectorAll(".contact-highlight").forEach((highlight) => highlight.classList.add("is-visible"));
+            obs.disconnect();
+          }
+        }, { threshold: 0.42 });
+        tempObserver.observe(contactSection);
+      }
+    }
   }
 
   if (certificateGalleryToggle && certificateGalleryToggleLabel) {
@@ -591,7 +611,8 @@ const revealObserver = new IntersectionObserver(
 
 document.querySelectorAll(".reveal").forEach((element) => revealObserver.observe(element));
 
-if (contactHighlights.length) {
+const contactSection = document.querySelector("#contact");
+if (contactSection) {
   const contactHighlightObserver = new IntersectionObserver(
     (entries, observer) => {
       entries.forEach((entry) => {
@@ -606,7 +627,7 @@ if (contactHighlights.length) {
     }
   );
 
-  contactHighlightObserver.observe(contactHighlights[0].closest("#contact") || contactHighlights[0]);
+  contactHighlightObserver.observe(contactSection);
 }
 
 const applyProjectFilter = (filter) => {
@@ -793,9 +814,46 @@ const configureProjectLink = (link, url) => {
 };
 
 let activeCaseStudyTrigger = null;
+let carouselCurrentIndex = 0;
+let carouselImages = [];
+
+const goToCarouselSlide = (index) => {
+  if (!caseStudyCarouselTrack || carouselImages.length === 0) return;
+
+  carouselCurrentIndex = (index + carouselImages.length) % carouselImages.length;
+  caseStudyCarouselTrack.style.transform = `translateX(-${carouselCurrentIndex * 100}%)`;
+
+  const dots = caseStudyCarouselDots?.querySelectorAll(".case-study-carousel-dot");
+  dots?.forEach((dot, i) => dot.classList.toggle("active", i === carouselCurrentIndex));
+};
+
+const buildCarousel = (images, altText) => {
+  if (!caseStudyCarouselTrack || !caseStudyCarouselDots) return;
+
+  carouselImages = Array.isArray(images) && images.length > 0 ? images : [];
+  carouselCurrentIndex = 0;
+
+  caseStudyCarouselTrack.innerHTML = carouselImages
+    .map((src, i) => `<div class="case-study-carousel-slide"><img src="${escapeHtml(src)}" alt="${escapeHtml(altText)} ${i + 1}" loading="lazy" /></div>`)
+    .join("");
+
+  caseStudyCarouselDots.innerHTML = carouselImages
+    .map((_, i) => `<button class="case-study-carousel-dot${i === 0 ? " active" : ""}" type="button" aria-label="Slide ${i + 1}"></button>`)
+    .join("");
+
+  caseStudyCarouselDots.querySelectorAll(".case-study-carousel-dot").forEach((dot, i) => {
+    dot.addEventListener("click", () => goToCarouselSlide(i));
+  });
+
+  const hasMultiple = carouselImages.length > 1;
+  if (caseStudyCarouselPrev) caseStudyCarouselPrev.style.display = hasMultiple ? "" : "none";
+  if (caseStudyCarouselNext) caseStudyCarouselNext.style.display = hasMultiple ? "" : "none";
+  if (caseStudyCarouselDots) caseStudyCarouselDots.style.display = hasMultiple ? "" : "none";
+
+  caseStudyCarouselTrack.style.transform = "translateX(0%)";
+};
 
 const openCaseStudyModal = (projectIndex, triggerButton) => {
-  const caseStudyImage = caseStudyModal?.querySelector(".case-study-media img");
   const caseStudyTitle = caseStudyModal?.querySelector("#caseStudyTitle");
   const caseStudyEyebrow = caseStudyModal?.querySelector(".case-study-eyebrow");
   const caseStudyDescription = caseStudyModal?.querySelector('[data-case-study-description]');
@@ -807,10 +865,11 @@ const openCaseStudyModal = (projectIndex, triggerButton) => {
 
   activeCaseStudyTrigger = triggerButton;
 
-  if (caseStudyImage) {
-    caseStudyImage.src = modal.image || project.image;
-    caseStudyImage.alt = getLocalizedValue(project.imageAlt);
-  }
+  // Build carousel
+  const images = Array.isArray(modal.images) && modal.images.length > 0
+    ? modal.images
+    : [modal.image || project.image];
+  buildCarousel(images, getLocalizedValue(project.imageAlt));
 
   if (caseStudyTitle) {
     caseStudyTitle.textContent = getLocalizedValue(modal.title) || getLocalizedValue(project.title);
@@ -878,6 +937,9 @@ const initializeProjectCards = () => {
 caseStudyCloseButtons.forEach((button) => {
   button.addEventListener("click", closeCaseStudyModal);
 });
+
+caseStudyCarouselPrev?.addEventListener("click", () => goToCarouselSlide(carouselCurrentIndex - 1));
+caseStudyCarouselNext?.addEventListener("click", () => goToCarouselSlide(carouselCurrentIndex + 1));
 
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
