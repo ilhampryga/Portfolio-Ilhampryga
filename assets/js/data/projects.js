@@ -92,13 +92,13 @@ window.PORTFOLIO_PROJECTS = [
       en: "A website booking photo studio that allows users to view available schedules and schedules that have already been filled in real-time, making the reservation process easier."
     },
     links: [
-      {
-        label: {
-          id: "Demo",
-          en: "Demo"
-        },
-        url: "https://vanillablue-photo-studio.onrender.com/"
-      },
+      // {
+      //   label: {
+      //     id: "Demo",
+      //     en: "Demo"
+      //   },
+      //   url: "https://vanillablue-photo-studio.onrender.com/"
+      // },
       {
         label: {
           id: "GitHub",
@@ -143,70 +143,70 @@ window.PORTFOLIO_PROJECTS = [
     ],
     delayClass: ""
   },
-  // {
-  //   kind: "project",
-  //   category: "data",
-  //   image: "assets/img/projects/data-analytics-project-placeholder.svg",
-  //   imageAlt: {
-  //     id: "Data Gaji Pekerjaan AI di Indonesia",
-  //     en: "Indonesian AI & Data Jobs Salary"
-  //   },
-  //   title: {
-  //     id: "Data Gaji Pekerjaan AI di Indonesia",
-  //     en: "Indonesian AI & Data Jobs Salary"
-  //   },
-  //   description: {
-  //     id: "Project analisis data end-to-end yang mengubah data mentah menjadi insight dan visualisasi interaktif melalui dashboard Tableau.",
-  //     en: "An end-to-end data analytics project that transforms raw data into insights and interactive visualizations through a Tableau dashboard."
-  //   },
-  //   links: [
-  //     {
-  //       label: {
-  //         id: "Dashboard",
-  //         en: "Dashboard"
-  //       },
-  //       url: ""
-  //     }
-  //   ],
-  //   delayClass: "delay-2",
-  //   modal: {
-  //     eyebrow: {
-  //       id: "Project Data Analyst",
-  //       en: "Data Analyst Project"
-  //     },
-  //     image: "assets/img/projects/data-analytics-project-placeholder.svg",
-  //     description: {
-  //       id: "Studi kasus ini mendokumentasikan proses analisis mulai dari memahami kebutuhan, membersihkan data, melakukan eksplorasi, hingga menyusun insight pada dashboard Tableau.",
-  //       en: "This case study documents the analysis process, from understanding the requirements and cleaning the data to exploration and presenting insights in a Tableau dashboard."
-  //     },
-  //     details: {
-  //       id: "Notebook digunakan untuk proses data preparation dan exploratory data analysis, sedangkan dashboard menyajikan hasil akhir agar mudah dipahami dan digunakan dalam pengambilan keputusan.",
-  //       en: "The notebook is used for data preparation and exploratory data analysis, while the dashboard presents the final results for clear communication and decision-making."
-  //     },
-  //     actions: [
-  //       {
-  //         label: {
-  //           id: "Dashboard",
-  //           en: "Dashboard"
-  //         },
-  //         url: "",
-  //         variant: "primary"
-  //       },
-  //       {
-  //         label: {
-  //           id: "Notebook",
-  //           en: "Notebook"
-  //         },
-  //         url: "",
-  //         variant: "secondary"
-  //       }
-  //     ],
-  //     buttonLabel: {
-  //       id: "Case Study",
-  //       en: "Case Study"
-  //     }
-  //   }
-  // },
+  {
+    kind: "project",
+    category: "data",
+    image: "assets/img/projects/data-analytics-project-placeholder.svg",
+    imageAlt: {
+      id: "Data Gaji Pekerjaan AI di Indonesia",
+      en: "Indonesian AI & Data Jobs Salary"
+    },
+    title: {
+      id: "Data Gaji Pekerjaan AI di Indonesia",
+      en: "Indonesian AI & Data Jobs Salary"
+    },
+    description: {
+      id: "Project analisis data end-to-end yang mengubah data mentah menjadi insight dan visualisasi interaktif melalui dashboard Tableau.",
+      en: "An end-to-end data analytics project that transforms raw data into insights and interactive visualizations through a Tableau dashboard."
+    },
+    links: [
+      {
+        label: {
+          id: "Dashboard",
+          en: "Dashboard"
+        },
+        url: ""
+      }
+    ],
+    delayClass: "delay-2",
+    modal: {
+      eyebrow: {
+        id: "Project Data Analyst",
+        en: "Data Analyst Project"
+      },
+      image: "assets/img/projects/data-analytics-project-placeholder.svg",
+      description: {
+        id: "Studi kasus ini mendokumentasikan proses analisis mulai dari memahami kebutuhan, membersihkan data, melakukan eksplorasi, hingga menyusun insight pada dashboard Tableau.",
+        en: "This case study documents the analysis process, from understanding the requirements and cleaning the data to exploration and presenting insights in a Tableau dashboard."
+      },
+      details: {
+        id: "Notebook digunakan untuk proses data preparation dan exploratory data analysis, sedangkan dashboard menyajikan hasil akhir agar mudah dipahami dan digunakan dalam pengambilan keputusan.",
+        en: "The notebook is used for data preparation and exploratory data analysis, while the dashboard presents the final results for clear communication and decision-making."
+      },
+      actions: [
+        {
+          label: {
+            id: "Dashboard",
+            en: "Dashboard"
+          },
+          url: "",
+          variant: "primary"
+        },
+        {
+          label: {
+            id: "Notebook",
+            en: "Notebook"
+          },
+          url: "",
+          variant: "secondary"
+        }
+      ],
+      buttonLabel: {
+        id: "Case Study",
+        en: "Case Study"
+      }
+    }
+  },
   {
     kind: "coming-soon",
     category: "soon",
