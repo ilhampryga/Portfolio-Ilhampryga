@@ -1,26 +1,51 @@
 window.PORTFOLIO_CERTIFICATES = [
   {
     category: "training",
-    image: "assets/img/certificates/damc.png",
+    featured: "secondary",
+    image: "assets/img/certificates/SQA.png",
     imageAlt: {
-      id: "Sertifikat Intro to Data Analytics",
-      en: "Intro to Data Analytics Certificate"
+      id: "Software Quality Assurance",
+      en: "Software Quality Assurance"
     },
     type: {
-      id: "Data Analyst",
-      en: "Data Analyst"
+      id: "Quality Assurance",
+      en: "Quality Assurance"
     },
     title: {
-      id: "Intro to Data Analytics",
-      en: "Intro to Data Analytics"
+      id: "Software Quality Assurance",
+      en: "Software Quality Assurance"
     },
-    logo: "assets/img/institutions/revou.jpeg",
+    logo: "assets/img/institutions/MySkill.png",
     source: {
-      id: "RevoU",
-      en: "RevoU"
+      id: "MySkill",
+      en: "MySkill"
     },
     year: "2026",
     delayClass: ""
+  },
+  {
+    category: "certification",
+    featured: "tertiary",
+    image: "assets/img/certificates/manualTest.png",
+    imageAlt: {
+      id: "Manual Testing",
+      en: "Manual Testing"
+    },
+    type: {
+      id: "Quality Assurance",
+      en: "Quality Assurance"
+    },
+    title: {
+      id: "Pengujian Manual",
+      en: "Manual Testing"
+    },
+    logo: "assets/img/institutions/testmuai.jpg",
+    source: {
+      id: "TestMu AI",
+      en: "TestMu AI"
+    },
+    year: "2026",
+    delayClass: "delay-1"
   },
   {
     category: "certification",
@@ -48,7 +73,29 @@ window.PORTFOLIO_CERTIFICATES = [
   },
   {
     category: "training",
-    featured: "tertiary",
+    image: "assets/img/certificates/ngulikSQL.png",
+    imageAlt: {
+      id: "Ngulik SQL",
+      en: "Ngulik SQL"
+    },
+    type: {
+      id: "Databases",
+      en: "Databases"
+    },
+    title: {
+      id: "Ngulik SQL",
+      en: "Ngulik SQL"
+    },
+    logo: "assets/img/institutions/ngulikData.png",
+    source: {
+      id: "Ngulik Data",
+      en: "Ngulik Data"
+    },
+    year: "2026",
+    delayClass: "delay-7"
+  },
+  {
+    category: "training",
     image: "assets/img/certificates/data_science.png",
     imageAlt: {
       id: "Sertifikat Associate Data Scientist + Python - Nasional",
@@ -187,7 +234,6 @@ window.PORTFOLIO_CERTIFICATES = [
   },
   {
     category: "training",
-    featured: "secondary",
     image: "assets/img/certificates/sertif_ukara.png",
     imageAlt: {
       id: "Placeholder sertifikat AI for Data Processing",
@@ -205,29 +251,6 @@ window.PORTFOLIO_CERTIFICATES = [
     source: {
       id: "UKARA",
       en: "UKARA"
-    },
-    year: "2026",
-    delayClass: "delay-7"
-  },
-    {
-    category: "training",
-    image: "assets/img/certificates/dqlab-da.png",
-    imageAlt: {
-      id: "Intro to Data Analytics",
-      en: "Intro to Data Analytics"
-    },
-    type: {
-      id: "Data Analyst",
-      en: "Data Analyst"
-    },
-    title: {
-      id: "Mini Bootcamp : Introduction to Data Analytics",
-      en: "Mini Bootcamp : Introduction to Data Analytics"
-    },
-    logo: "assets/img/institutions/dqlab.jpg",
-    source: {
-      id: "DQ Lab",
-      en: "DQ Lab"
     },
     year: "2026",
     delayClass: "delay-7"

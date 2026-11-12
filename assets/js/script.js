@@ -37,6 +37,11 @@ const caseStudyCarouselNext = document.getElementById("caseStudyCarouselNext");
 const caseStudyCarouselDots = document.getElementById("caseStudyCarouselDots");
 const cursorGlow = document.querySelector(".cursor-glow");
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const cvDownloadBtn = document.querySelector("[data-cv-btn]");
+const CV_FILES = {
+  id: "assets/files/CV - Ilham Adi Prayoga_id.pdf",
+  en: "assets/files/CV - Ilham Adi Prayoga_en.pdf"
+};
 const LOGO_LOOP_CONFIG = { SMOOTH_TAU: 0.25, MIN_COPIES: 2, COPY_HEADROOM: 2 };
 const experienceData = window.PORTFOLIO_EXPERIENCE && typeof window.PORTFOLIO_EXPERIENCE === "object"
   ? window.PORTFOLIO_EXPERIENCE
@@ -116,25 +121,25 @@ const i18n = {
     "aria.cert_filter": "Filter pelatihan dan sertifikasi",
     "aria.close_certificate_preview": "Tutup pratinjau sertifikat",
     "aria.close_case_study": "Tutup case study",
-    "hero.eyebrow": "Software Developer &bull; Web &bull; IoT &bull; Automation",
+    "hero.eyebrow": "Software Quality Assurance &bull; Manual &amp; Automation Testing &bull; QA Engineer",
     "hero.title": 'Analyze, Testing,<span class="gradient-text">Development</span>',
-    "hero.description": 'Halo, saya <strong>Ilham Prayoga</strong>. Saya tertarik pada Data Analysis dan Software Quality Assurance, mulai dari mengolah data menjadi insight hingga melakukan pengujian untuk memastikan kualitas aplikasi.',
+    "hero.description": 'Halo, saya <strong>Ilham Prayoga</strong>. Saya berfokus pada bidang Software Quality Assurance, berdedikasi dalam merancang skenario pengujian, melakukan manual &amp; automation testing, mengidentifikasi bug, serta memastikan kualitas dan fungsionalitas aplikasi berjalan optimal sesuai kebutuhan pengguna.',
     "hero.cta_projects": "Lihat Project",
     "hero.cta_cv": "Download CV",
     "hero.ready": "Open to Work",
-    "hero.card_role": "Junior Data Analyst & Quality Assurance",
-    "hero.code_focus": '<span>const</span> focus = "Analytics &amp; Testing";',
-    "hero.code_stack": '<span>const</span> stack = ["Python", "Tableau", "Selenium"];',
+    "hero.card_role": "Junior Software Quality Assurance",
+    "hero.code_focus": '<span>const</span> focus = "Software Testing";',
+    "hero.code_stack": '<span>const</span> stack = ["Postman", "Cypress", "Selenium"];',
     "about.eyebrow": "Tentang Saya",
-    "about.p1": "Saya adalah fresh graduate Teknik Informatika. Saya memiliki minat pada bidang Data Analyst dan Software Quality Assurance, dengan pengalaman dalam pengolahan data, visualisasi, pengujian manual, API testing, dan automation testing. Selama perkuliahan, saya mengerjakan beberapa project berbasis IoT, Software Development, dan pengolahan data. Saya juga telah menyelesaikan Program Studi Independen MSIB Angkatan 7 sebagai IoT Engineer di Indobot Academy serta aktif dalam Himpunan Mahasiswa Teknik Informatika sebagai anggota Divisi IPTEK. Saat ini, saya sedang mencari kesempatan untuk memulai karier sebagai Junior Data Analyst atau Software Quality Assurance.",
-    "about.p2": "Fokus saya adalah membuat antarmuka yang mudah digunakan, struktur kode yang jelas, dan pengalaman pengguna yang sederhana namun tetap interaktif.",
-    "about.card_role": "Junior Data Analyst & SQA",
+    "about.p1": "Saya adalah fresh graduate Teknik Informatika yang berfokus pada bidang Software Quality Assurance (SQA). Saya memiliki pemahaman yang baik mengenai SDLC dan STLC, serta terbiasa dalam menyusun test plan, merancang test case, melakukan pengujian manual, API testing, hingga automation testing untuk memastikan aplikasi berjalan sesuai standar fungsionalitas dan bebas dari defect. Selama perkuliahan, saya aktif mengembangkan project berbasis Software Development dan IoT, menyelesaikan Program Studi Independen MSIB Angkatan 7 di Indobot Academy, serta berorganisasi di Himpunan Mahasiswa Teknik Informatika (Divisi IPTEK). Saat ini, saya siap berkontribusi secara profesional sebagai Junior Software Quality Assurance / QA Engineer.",
+    "about.p2": "Fokus utama saya adalah memastikan keandalan, stabilitas, dan kualitas aplikasi melalui pengujian yang teliti dan sistematis demi menghadirkan pengalaman pengguna yang optimal.",
+    "about.card_role": "Junior Software Quality Assurance",
     "about.profile_status": "Available",
     "about.profile_contact": "Contact",
     "about.stat_projects_title": "5+ Project",
     "about.stat_projects_line1": "Telah",
     "about.stat_projects_line2": "Diselesaikan",
-    "about.stat_certs_title": "5+ Sertifikat",
+    "about.stat_certs_title": "10+ Sertifikat",
     "about.stat_certs_line1": "Pelatihan &",
     "about.stat_certs_line2": "Sertifikasi",
     "about.stat_msib_title": "Alumni MSIB",
@@ -143,7 +148,7 @@ const i18n = {
     "experience.heading": "Pendidikan dan Pengalaman",
     "certifications.eyebrow": "Pelatihan & Sertifikasi",
     "certifications.heading": "Daftar Sertifikat",
-    "certifications.description": "Ruang untuk pelatihan dan sertifikasi di bidang Data Analytics, Software Quality Assurance, serta pengembangan profesional.",
+    "certifications.description": "Koleksi pelatihan dan sertifikasi di bidang Software Quality Assurance, pengujian perangkat lunak, serta pengembangan keahlian teknologi.",
     "certifications.filter_all": "Semua",
     "certifications.filter_training": "Pelatihan",
     "certifications.filter_certification": "Sertifikasi",
@@ -153,7 +158,7 @@ const i18n = {
     "projects.filter_all": "Semua",
     "projects.filter_web": "Web",
     "projects.filter_automation": "Automation",
-    "projects.filter_data": "Data Analyst",
+    "projects.filter_data": "QA & Testing",
     "projects.coming_soon": "Coming Soon Project...",
     "project1.desc": "Sistem irigasi tetes berbasis IoT untuk tanaman cabai menggunakan perhitungan ETc Hargreaves-Samani dan Fuzzy Logic.",
     "project2.desc": "Workflow otomatis untuk mencatat pemasukan dan pengeluaran melalui Telegram, kemudian menyimpan data ke Google Sheets.",
@@ -161,11 +166,11 @@ const i18n = {
     "project4.desc": "Halaman promosi responsif untuk bisnis lokal dengan tampilan modern, CTA yang jelas, dan struktur informasi yang mudah dipindai.",
     "project5.title": "Workflow Notifikasi Otomatis",
     "project5.desc": "Automasi pengiriman notifikasi dari data formulir dan API eksternal untuk mempercepat proses follow-up dan pelaporan.",
-    "data_project.title": "Data Analytics Dashboard",
-    "data_project.desc": "Project analisis data end-to-end yang mengubah data mentah menjadi insight dan visualisasi interaktif melalui dashboard Tableau.",
-    "case_study.eyebrow": "Project Data Analyst",
-    "case_study.description": "Studi kasus ini mendokumentasikan proses analisis mulai dari memahami kebutuhan, membersihkan data, melakukan eksplorasi, hingga menyusun insight pada dashboard Tableau.",
-    "case_study.details": "Notebook digunakan untuk proses data preparation dan exploratory data analysis, sedangkan dashboard menyajikan hasil akhir agar mudah dipahami dan digunakan dalam pengambilan keputusan.",
+    "data_project.title": "Project Case Study",
+    "data_project.desc": "Studi kasus pengujian dan pengembangan aplikasi secara terstruktur.",
+    "case_study.eyebrow": "Project Case Study",
+    "case_study.description": "Studi kasus ini mendokumentasikan proses pengujian dan pengembangan proyek secara terstruktur.",
+    "case_study.details": "Dokumentasi mencakup kebutuhan sistem, skenario pengujian, serta hasil implementasi.",
     "skills.eyebrow": "Keahlian",
     "skills.heading": "Keahlian",
     "contact.eyebrow": "Kontak",
@@ -189,25 +194,25 @@ const i18n = {
     "aria.cert_filter": "Training and certification filter",
     "aria.close_certificate_preview": "Close certificate preview",
     "aria.close_case_study": "Close case study",
-    "hero.eyebrow": "Software Developer &bull; Web &bull; IoT &bull; Automation",
+    "hero.eyebrow": "Software Quality Assurance &bull; Manual &amp; Automation Testing &bull; QA Engineer",
     "hero.title": 'Analyze, Testing,<span class="gradient-text">Development</span>',
-    "hero.description": 'Hi, I\'m <strong>Ilham Prayoga</strong>. I am interested in Data Analysis and Software Quality Assurance, from turning data into insights to testing applications to ensure their quality.',
+    "hero.description": 'Hi, I\'m <strong>Ilham Prayoga</strong>. I focus on Software Quality Assurance, dedicated to designing test scenarios, executing manual &amp; automation testing, identifying bugs, and ensuring application quality and functionality meet user requirements.',
     "hero.cta_projects": "View Projects",
     "hero.cta_cv": "Download CV",
     "hero.ready": "Open to Work",
-    "hero.card_role": "Junior Data Analyst & Quality Assurance",
-    "hero.code_focus": '<span>const</span> focus = "Analytics &amp; Testing";',
-    "hero.code_stack": '<span>const</span> stack = ["Python", "Tableau", "Selenium"];',
+    "hero.card_role": "Junior Software Quality Assurance",
+    "hero.code_focus": '<span>const</span> focus = "Software Testing";',
+    "hero.code_stack": '<span>const</span> stack = ["Postman", "Cypress", "Selenium"];',
     "about.eyebrow": "About Me",
-    "about.p1": "I am a fresh graduate in Informatics Engineering. I am interested in Data Analysis and Software Quality Assurance, with experience in data processing, visualization, manual testing, API testing, and automation testing. During college, I worked on several projects in IoT, software development, and data processing. I also completed the MSIB Cycle 7 Independent Study Program as an IoT Engineer at Indobot Academy and was active in the Informatics Engineering Student Association as a member of the Science and Technology Division. I am currently looking for an opportunity to start my career as a Junior Data Analyst or Software Quality Assurance professional.",
-    "about.p2": "My focus is on creating user-friendly interfaces, clean code structure, and a simple yet interactive user experience.",
-    "about.card_role": "Junior Data Analyst & SQA",
+    "about.p1": "I am an Informatics Engineering fresh graduate focused on Software Quality Assurance (SQA). I have a solid understanding of SDLC and STLC, and experience in preparing test plans, writing test cases, performing manual testing, API testing, and automation testing to ensure applications meet functional requirements and are free from critical defects. During my studies, I actively worked on software development and IoT projects, completed the MSIB Cycle 7 Independent Study Program at Indobot Academy, and was active in the Informatics Student Association (Science and Technology Division). Currently, I am ready to contribute professionally as a Junior Software Quality Assurance / QA Engineer.",
+    "about.p2": "My primary focus is ensuring software reliability, stability, and quality through thorough and systematic testing to deliver the best user experience.",
+    "about.card_role": "Junior Software Quality Assurance",
     "about.profile_status": "Available",
     "about.profile_contact": "Contact",
     "about.stat_projects_title": "5+ Projects",
     "about.stat_projects_line1": "Completed",
     "about.stat_projects_line2": "",
-    "about.stat_certs_title": "5+ Certificates",
+    "about.stat_certs_title": "10+ Certificates",
     "about.stat_certs_line1": "Training &",
     "about.stat_certs_line2": "Certifications",
     "about.stat_msib_title": "MSIB Alumni",
@@ -216,7 +221,7 @@ const i18n = {
     "experience.heading": "Education and Experience",
     "certifications.eyebrow": "Training & Certifications",
     "certifications.heading": "Certificate List",
-    "certifications.description": "A dedicated space for training and certifications in Data Analytics, Software Quality Assurance, and professional development.",
+    "certifications.description": "A collection of training and certifications in Software Quality Assurance, software testing, and technology skills development.",
     "certifications.filter_all": "All",
     "certifications.filter_training": "Training",
     "certifications.filter_certification": "Certification",
@@ -226,7 +231,7 @@ const i18n = {
     "projects.filter_all": "All",
     "projects.filter_web": "Web",
     "projects.filter_automation": "Automation",
-    "projects.filter_data": "Data Analyst",
+    "projects.filter_data": "QA & Testing",
     "projects.coming_soon": "Coming Soon Project...",
     "project1.desc": "An IoT-based drip irrigation system for chili plants using ETc Hargreaves-Samani calculation and Fuzzy Logic.",
     "project2.desc": "Automated workflow for tracking income and expenses via Telegram, then saving the data to Google Sheets.",
@@ -234,11 +239,11 @@ const i18n = {
     "project4.desc": "A responsive promotional page for local businesses with a modern look, clear CTA, and easily scannable information structure.",
     "project5.title": "Automated Notification Workflow",
     "project5.desc": "Automated notification delivery from form data and external APIs to speed up follow-up and reporting processes.",
-    "data_project.title": "Data Analytics Dashboard",
-    "data_project.desc": "An end-to-end data analytics project that transforms raw data into insights and interactive visualizations through a Tableau dashboard.",
-    "case_study.eyebrow": "Data Analyst Project",
-    "case_study.description": "This case study documents the analysis process, from understanding the requirements and cleaning the data to exploration and presenting insights in a Tableau dashboard.",
-    "case_study.details": "The notebook is used for data preparation and exploratory data analysis, while the dashboard presents the final results for clear communication and decision-making.",
+    "data_project.title": "Project Case Study",
+    "data_project.desc": "Structured case study on software testing and application development.",
+    "case_study.eyebrow": "Project Case Study",
+    "case_study.description": "This case study documents the structured testing and application development process.",
+    "case_study.details": "The documentation covers system requirements, test scenarios, and implementation results.",
     "skills.eyebrow": "Skills",
     "skills.heading": "Skills",
     "contact.eyebrow": "Contact",
@@ -455,6 +460,11 @@ const applyLang = (lang) => {
   renderDynamicContent(lang);
   document.documentElement.setAttribute("lang", lang);
 
+  // Update CV download link based on active language
+  if (cvDownloadBtn && CV_FILES[lang]) {
+    cvDownloadBtn.href = CV_FILES[lang];
+  }
+
   document.querySelectorAll("[data-i18n]").forEach((element) => {
     const key = element.getAttribute("data-i18n");
     const value = dict[key];
@@ -554,6 +564,12 @@ const setHeaderState = () => {
 };
 
 renderDynamicContent(getStoredLang() || "id");
+
+// Initialize CV download link on page load
+const _initLang = getStoredLang() || "id";
+if (cvDownloadBtn && CV_FILES[_initLang]) {
+  cvDownloadBtn.href = CV_FILES[_initLang];
+}
 
 setHeaderState();
 window.addEventListener("scroll", setHeaderState, { passive: true });

@@ -1,4 +1,132 @@
 window.PORTFOLIO_PROJECTS = [
+
+   {
+    kind: "project",
+    category: "qa",
+    image: "assets/img/projects/project5.png",
+    imageAlt: {
+      id: "Automation Web Testing",
+      en: "Automation Web Testing"
+    },
+    title: {
+      id: "Automation Web Testing Vanillablue Photo Studio Web",
+      en: "Automation Web Testing Vanillablue Photo Studio Web"
+    },
+    description: {
+      id: "Proyek pengujian otomatisasi website menggunakan Cypress dengan pendekatan Page Object Model (POM), mencakup pengujian fungsional, verifikasi email, validasi OTP, dan pengujian integrasi pembayaran.",
+      en: "A website automation testing project developed using Cypress and the Page Object Model (POM) approach, covering functional testing, email verification, OTP validation, and payment integration testing."
+    },
+    links: [
+      {
+        label: {
+          id: "Github",
+          en: "Github"
+        },
+        url: "https://github.com/ilhampryga/Vanillablue-AutomationCypress.git",
+      }
+    ],
+    delayClass: "",
+    modal: {
+      eyebrow: {
+        id: "Automation Web Testing",
+        en: "Automation Web Testing"
+      },
+      images: [
+        "assets/img/projects/project5.png",
+        "assets/img/projects/sit1.png",
+        "assets/img/projects/sit2.png",
+        "assets/img/projects/sit3.png",
+        "assets/img/projects/sit4.png",
+        "assets/img/projects/sit5.png"
+      ],
+      description: {
+        id: "Proyek ini mengembangkan framework otomatisasi pengujian E2E berbasis Cypress dan POM untuk aplikasi web VanillaBlue Photo Studio. Pengujian mencakup 14 modul utama yang dibagi ke dalam 5 alur bisnis terintegrasi.",
+        en: "This project involved developing an End-to-End (E2E) test automation framework using Cypress and the Page Object Model (POM) design pattern for the VanillaBlue Photo Studio web application. Testing covered 14 core modules organized into 5 integrated business workflows."
+      },
+      details: {
+        id: "Dalam proses pengujian, framework ini berhasil mengotomatisasi skenario seperti verifikasi email dan OTP secara real-time via Mailtrap API, serta simulasi berbagai respons payment gateway (sukses, pending, gagal, hingga API error 500).",
+        en: "The framework successfully automated various test scenarios, including real-time email and OTP verification through the Mailtrap API, as well as simulations of multiple payment gateway responses (success, pending, failed, and HTTP 500 API errors)."
+      },
+      actions: [
+      {
+        label: {
+          id: "Github",
+          en: "Github"
+        },
+        url: "https://github.com/ilhampryga/Vanillablue-AutomationCypress.git",
+      }
+      ],
+      buttonLabel: {
+        id: "Detail",
+        en: "Details"
+      }
+    }
+  }, 
+  {
+    kind: "project",
+    category: "qa",
+    image: "assets/img/projects/project4.png",
+    imageAlt: {
+      id: "API Testing",
+      en: "API Testing"
+    },
+    title: {
+      id: "API Testing Vanillablue Photo Studio Web",
+      en: "API Testing Vanillablue Photo Studio Web"
+    },
+    description: {
+      id: "Pengujian API menggunakan Postman untuk memastikan fungsionalitas, keakuratan respons, serta keandalan API melalui pengujian endpoint, validasi request dan response, serta verifikasi status code.",
+      en: "API testing using Postman to ensure API functionality, response accuracy, and reliability through endpoint testing, request and response validation, and status code verification."
+    },
+    links: [
+      {
+        label: {
+          id: "Postman",
+          en: "Postman"
+        },
+        url: "https://documenter.getpostman.com/view/56197570/2sBYB4LnD2",
+      }
+    ],
+    delayClass: "",
+    modal: {
+      eyebrow: {
+        id: "API Testing",
+        en: "API Testing"
+      },
+      images: [
+        "assets/img/projects/project4.png",
+        "assets/img/projects/api1.png",
+        "assets/img/projects/api2.png",
+        "assets/img/projects/api3.png"
+      ],
+      description: {
+        id: "Melakukan pengujian API menggunakan Postman terhadap 5 fitur utama, yaitu Registration, Catalog, Reset Password, Authentication, dan Order. Pengujian mencakup validasi endpoint, request dan response, serta status code untuk memastikan setiap fitur berjalan sesuai dengan kebutuhan dan spesifikasi sistem.",
+        en: "Performed API testing using Postman on 5 key features: Registration, Catalog, Reset Password, Authentication, and Order. The testing covered endpoint validation, request and response verification, and status code validation to ensure each feature functioned according to the system requirements and specifications."
+      },
+      details: {
+        id: "Dalam project ini, berhasil menyusun dan menjalankan total 74 test case serta menemukan 9 defect selama proses pengujian. Hasil pengujian didokumentasikan sebagai bahan evaluasi untuk mengidentifikasi kesalahan dan meningkatkan kualitas serta keandalan API.",
+        en: "Throughout the project, a total of 74 test cases were designed and executed, resulting in the identification of 9 defects during the testing process. The test results were documented to support further evaluation, identify issues, and improve API quality and reliability."
+      },
+      actions: [
+      {
+        label: {
+          id: "Postman",
+          en: "Postman"
+        },
+        url: "https://documenter.getpostman.com/view/56197570/2sBYB4LnD2",
+        label: {
+          id: "Test Case",
+          en: "Test Case"
+        },
+        url: "https://docs.google.com/spreadsheets/d/1aQKKA4vDhpalZyyP5H5eKzVX9ABAjt966MykxF_90G4/edit?gid=1197934668#gid=1197934668"
+      }
+      ],
+      buttonLabel: {
+        id: "Detail",
+        en: "Details"
+      }
+    }
+  },  
   {
     kind: "project",
     category: "iot",
@@ -16,13 +144,6 @@ window.PORTFOLIO_PROJECTS = [
       en: "An IoT-based drip irrigation system for chili plants using ETc Hargreaves-Samani calculation and Fuzzy Logic."
     },
     links: [
-      // {
-      //   label: {
-      //     id: "Demo",
-      //     en: "Demo"
-      //   },
-      //   url: "https://ilhampryga.github.io/SmartDrip-Page/"
-      // },
       {
         label: {
           id: "GitHub",
@@ -52,14 +173,6 @@ window.PORTFOLIO_PROJECTS = [
         en: "This system integrates temperature and soil moisture sensors connected to an ESP8266 microcontroller for real-time irrigation monitoring. It applies daily temperature correction using the Open-Meteo API as the basis for ETc calculation."
       },
       actions: [
-        // {
-        //   label: {
-        //     id: "Demo",
-        //     en: "Demo"
-        //   },
-        //   url: "https://ilhampryga.github.io/SmartDrip-Page/",
-        //   variant: "primary"
-        // },
         {
           label: {
             id: "GitHub",
@@ -142,78 +255,5 @@ window.PORTFOLIO_PROJECTS = [
       }
     ],
     delayClass: ""
-  },
-  // {
-  //   kind: "project",
-  //   category: "data",
-  //   image: "assets/img/projects/data-analytics-project-placeholder.svg",
-  //   imageAlt: {
-  //     id: "Data Gaji Pekerjaan AI di Indonesia",
-  //     en: "Indonesian AI & Data Jobs Salary"
-  //   },
-  //   title: {
-  //     id: "Data Gaji Pekerjaan AI di Indonesia",
-  //     en: "Indonesian AI & Data Jobs Salary"
-  //   },
-  //   description: {
-  //     id: "Project analisis data end-to-end yang mengubah data mentah menjadi insight dan visualisasi interaktif melalui dashboard Tableau.",
-  //     en: "An end-to-end data analytics project that transforms raw data into insights and interactive visualizations through a Tableau dashboard."
-  //   },
-  //   links: [
-  //     {
-  //       label: {
-  //         id: "Dashboard",
-  //         en: "Dashboard"
-  //       },
-  //       url: ""
-  //     }
-  //   ],
-  //   delayClass: "delay-2",
-  //   modal: {
-  //     eyebrow: {
-  //       id: "Project Data Analyst",
-  //       en: "Data Analyst Project"
-  //     },
-  //     image: "assets/img/projects/data-analytics-project-placeholder.svg",
-  //     description: {
-  //       id: "Studi kasus ini mendokumentasikan proses analisis mulai dari memahami kebutuhan, membersihkan data, melakukan eksplorasi, hingga menyusun insight pada dashboard Tableau.",
-  //       en: "This case study documents the analysis process, from understanding the requirements and cleaning the data to exploration and presenting insights in a Tableau dashboard."
-  //     },
-  //     details: {
-  //       id: "Notebook digunakan untuk proses data preparation dan exploratory data analysis, sedangkan dashboard menyajikan hasil akhir agar mudah dipahami dan digunakan dalam pengambilan keputusan.",
-  //       en: "The notebook is used for data preparation and exploratory data analysis, while the dashboard presents the final results for clear communication and decision-making."
-  //     },
-  //     actions: [
-  //       {
-  //         label: {
-  //           id: "Dashboard",
-  //           en: "Dashboard"
-  //         },
-  //         url: "",
-  //         variant: "primary"
-  //       },
-  //       {
-  //         label: {
-  //           id: "Notebook",
-  //           en: "Notebook"
-  //         },
-  //         url: "",
-  //         variant: "secondary"
-  //       }
-  //     ],
-  //     buttonLabel: {
-  //       id: "Case Study",
-  //       en: "Case Study"
-  //     }
-  //   }
-  // },
-  {
-    kind: "coming-soon",
-    category: "soon",
-    label: {
-      id: "Coming Soon Project...",
-      en: "Coming Soon Project..."
-    },
-    delayClass: "delay-2"
   }
 ];
